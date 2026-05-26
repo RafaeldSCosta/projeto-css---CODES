@@ -1,15 +1,23 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ImóveisCo - Perfil</title>
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
+
     <header>
-        <h1> Perfil</h1>
-        <a href="#login" class="button secondary">Entrar</a>
+        <h1>Perfil</h1>
+
+        <a href="#login"
+           class="button secondary">
+            Entrar
+        </a>
     </header>
 
     <nav class="top-nav">
@@ -20,12 +28,37 @@
     </nav>
 
     <main>
-        <input type="checkbox" id="edit-profile-toggle" hidden>
+
+        <input type="checkbox"
+               id="edit-profile-toggle"
+               hidden>
+
         <section class="profile-content">
+
+            <h2>
+                Informações do Perfil
+            </h2>
+
             <section class="profile-card">
-                <span class="profile-avatar">R</span>
-                <h3>Rafael</h3>
+
+                <h2 class="sr-only">
+                    Cartão de perfil
+                </h2>
+
+                <span class="profile-avatar">
+                    R
+                </span>
+
+                <h2>
+                    Rafael
+                </h2>
+
                 <section class="profile-info">
+
+                    <h3>
+                        Dados do Usuário
+                    </h3>
+
                     <p><strong>Email:</strong> rafael@example.com</p>
                     <p><strong>Tipo:</strong> Interessado</p>
                     <p><strong>Idade:</strong> 25</p>
@@ -41,255 +74,357 @@
                     <p><strong>Hobbies:</strong> Leitura, esportes</p>
                     <p><strong>Pets:</strong> Não</p>
                     <p><strong>Personalidade:</strong> Extrovertido</p>
+
                 </section>
-                <label for="edit-profile-toggle" class="button"> Editar Perfil</label>
+
+                <label for="edit-profile-toggle"
+                       class="button">
+                    Editar Perfil
+                </label>
+
             </section>
 
             <section class="profile-form">
-                <section class="card">
-                    <h2>Editar Perfil</h2>
-                    <form id="profile-form">
-                        <label>Nome
-                            <input type="text" id="edit-name" value="Rafael">
+
+                <h2>
+                    Editar Perfil
+                </h2>
+
+                <form id="profile-form">
+
+                    <label for="edit-name">
+                        Nome
+                    </label>
+
+                    <input type="text"
+                           id="edit-name"
+                           value="Rafael">
+
+                    <label for="edit-email">
+                        Email
+                    </label>
+
+                    <input type="email"
+                           id="edit-email"
+                           value="rafael@example.com">
+
+                    <label for="edit-gender">
+                        Sexo
+                    </label>
+
+                    <select id="edit-gender">
+                        <option selected>Masculino</option>
+                        <option>Feminino</option>
+                        <option>Outro</option>
+                    </select>
+
+                    <label for="edit-age">
+                        Idade
+                    </label>
+
+                    <input type="number"
+                           id="edit-age"
+                           value="25"
+                           min="18"
+                           max="100">
+
+                    <label for="edit-profession">
+                        Profissão
+                    </label>
+
+                    <input type="text"
+                           id="edit-profession"
+                           value="Desenvolvedor">
+
+                    <label for="edit-location">
+                        Localização
+                    </label>
+
+                    <input type="text"
+                           id="edit-location"
+                           value="São Paulo">
+
+                    <label for="edit-phone">
+                        Telefone
+                    </label>
+
+                    <input type="tel"
+                           id="edit-phone"
+                           value="(11) 98765-4321">
+
+                    <label for="edit-bio">
+                        Bio Pessoal
+                    </label>
+
+                    <textarea id="edit-bio">Apaixonado por tecnologia e moradia confortável.</textarea>
+
+                    <label for="edit-marital">
+                        Estado Civil
+                    </label>
+
+                    <select id="edit-marital">
+                        <option selected>Solteiro(a)</option>
+                        <option>Relacionada(o)</option>
+                        <option>Casado(a)</option>
+                        <option>Divorciado(a)</option>
+                    </select>
+
+                    <label for="edit-experience">
+                        Experiência Profissional
+                    </label>
+
+                    <input type="text"
+                           id="edit-experience"
+                           value="5 anos em desenvolvimento">
+
+                    <label for="edit-languages">
+                        Idiomas
+                    </label>
+
+                    <input type="text"
+                           id="edit-languages"
+                           value="Português, Inglês">
+
+                    <label for="edit-income">
+                        Faixa de Renda
+                    </label>
+
+                    <select id="edit-income">
+                        <option>Até R$ 2.000</option>
+                        <option selected>R$ 2.000 - R$ 5.000</option>
+                        <option>R$ 5.000 - R$ 10.000</option>
+                        <option>R$ 10.000 - R$ 20.000</option>
+                        <option>Acima de R$ 20.000</option>
+                    </select>
+
+                    <label for="edit-hobbies">
+                        Hobbies
+                    </label>
+
+                    <input type="text"
+                           id="edit-hobbies"
+                           value="Leitura, esportes">
+
+                    <fieldset>
+
+                        <legend>
+                            Gosta de pets?
+                        </legend>
+
+                        <label for="edit-pets-yes">
+                            <input type="radio"
+                                   id="edit-pets-yes"
+                                   name="pets"
+                                   checked>
+                            Sim
                         </label>
-                        <label>Email
-                            <input type="email" id="edit-email" value="rafael@example.com">
+
+                        <label for="edit-pets-no">
+                            <input type="radio"
+                                   id="edit-pets-no"
+                                   name="pets">
+                            Não
                         </label>
-                        <label>Sexo
-                            <select id="edit-gender">
-                                <option selected>Masculino</option>
-                                <option>Feminino</option>
-                                <option>Outro</option>
-                            </select>
+
+                    </fieldset>
+
+                    <fieldset>
+
+                        <legend>
+                            Personalidade
+                        </legend>
+
+                        <label for="edit-personality-extroverted">
+                            <input type="radio"
+                                   id="edit-personality-extroverted"
+                                   name="personality"
+                                   checked>
+                            Extrovertido
                         </label>
-                        <label>Idade
-                            <input type="number" id="edit-age" value="25" min="18" max="100">
+
+                        <label for="edit-personality-introverted">
+                            <input type="radio"
+                                   id="edit-personality-introverted"
+                                   name="personality">
+                            Introvertido
                         </label>
-                        <label>Profissão
-                            <input type="text" id="edit-profession" value="Desenvolvedor">
-                        </label>
-                        <label>Localização
-                            <input type="text" id="edit-location" value="São Paulo">
-                        </label>
-                        <label>Telefone
-                            <input type="tel" id="edit-phone" value="(11) 98765-4321">
-                        </label>
-                        <label>Bio Pessoal
-                            <textarea id="edit-bio">Apaixonado por tecnologia e moradia confortável.</textarea>
-                        </label>
-                        <label>Estado Civil
-                            <select id="edit-marital">
-                                <option selected>Solteiro(a)</option>
-                                <option>Relacionada(o)</option>
-                                <option>Casado(a)</option>
-                                <option>Divorciado(a)</option>
-                            </select>
-                        </label>
-                        <label>Experiência Profissional
-                            <input type="text" id="edit-experience" value="5 anos em desenvolvimento">
-                        </label>
-                        <label>Idiomas
-                            <input type="text" id="edit-languages" value="Português, Inglês">
-                        </label>
-                        <label>Faixa de Renda
-                            <select id="edit-income">
-                                <option>Até R$ 2.000</option>
-                                <option selected>R$ 2.000 - R$ 5.000</option>
-                                <option>R$ 5.000 - R$ 10.000</option>
-                                <option>R$ 10.000 - R$ 20.000</option>
-                                <option>Acima de R$ 20.000</option>
-                            </select>
-                        </label>
-                        <label>Hobbies
-                            <input type="text" id="edit-hobbies" value="Leitura, esportes">
-                        </label>
-                        <label>Gosta de pets?
-                            <input type="radio" id="edit-pets-yes" name="pets" checked> Sim
-                            <input type="radio" id="edit-pets-no" name="pets"> Não
-                        </label>
-                        <label>Personalidade
-                            <input type="radio" id="edit-personality-extroverted" name="personality" checked> Extrovertido
-                            <input type="radio" id="edit-personality-introverted" name="personality"> Introvertido
-                        </label>
-                        <button type="submit" class="button">Salvar Alterações</button>
-                        <label for="edit-profile-toggle" class="button secondary">Cancelar</label>
-                    </form>
-                </section>
+
+                    </fieldset>
+
+                    <button type="submit"
+                            class="button">
+                        Salvar Alterações
+                    </button>
+
+                    <label for="edit-profile-toggle"
+                           class="button secondary">
+                        Cancelar
+                    </label>
+
+                </form>
+
             </section>
+
         </section>
+
     </main>
 
-    <nav id="bottom-nav" aria-label="Navegação inferior">
+    <nav id="bottom-nav"
+         aria-label="Navegação inferior">
+
         <ul>
-            <li><a href="teste1.html"><img src="imagens/home.png" alt="Home"></a></li>
-            <li><a href="favorites.html"><img src="imagens/like.png" alt="Favoritos"></a></li>
-            <li><a href="#chat-modal"><img src="imagens/messagens.png" alt="Chat"></a></li>
-            <li><a href="profile.html"><img src="imagens/user.png" alt="Perfil"></a></li>
+
+            <li>
+                <a href="teste1.html">
+                    <img src="imagens/home.png"
+                         alt="Home">
+                </a>
+            </li>
+
+            <li>
+                <a href="favorites.html">
+                    <img src="imagens/like.png"
+                         alt="Favoritos">
+                </a>
+            </li>
+
+            <li>
+                <a href="#chat-modal">
+                    <img src="imagens/messagens.png"
+                         alt="Chat">
+                </a>
+            </li>
+
+            <li>
+                <a href="profile.html">
+                    <img src="imagens/user.png"
+                         alt="Perfil">
+                </a>
+            </li>
+
         </ul>
+
     </nav>
 
-    <section id="chat-modal" class="modal chat-modal">
-        <section class="modal-content chat-modal-content">
-            <a href="#" class="close">&times;</a>
-            <section class="chat-layout">
-                <input type="radio" id="conv-none" name="conversation" checked hidden>
-                <input type="radio" id="conv-maria" name="conversation" hidden>
-                <input type="radio" id="conv-joao" name="conversation" hidden>
-                <input type="radio" id="conv-carla" name="conversation" hidden>
+    <section id="login"
+             class="modal">
 
-                <section class="chat-list">
-                    <label for="conv-maria" class="chat-item">
-                        <span class="chat-avatar">M</span>
-                        <section>
-                            <span class="chat-name">Maria</span>
-                            <p>Oi, tudo bem?</p>
-                        </section>
-                    </label>
-                    <label for="conv-joao" class="chat-item">
-                        <span class="chat-avatar">J</span>
-                        <section>
-                            <span class="chat-name">João</span>
-                            <p>Sobre o quarto...</p>
-                        </section>
-                    </label>
-                    <label for="conv-carla" class="chat-item">
-                        <span class="chat-avatar">C</span>
-                        <section>
-                            <span class="chat-name">Carla</span>
-                            <p>Visita agendada!</p>
-                        </section>
-                    </label>
-                </section>
+        <h2 class="sr-only">
+            Login
+        </h2>
 
-                <section class="chat-content">
-                    <article class="conversation conversation-maria">
-                        <input type="checkbox" id="call-maria" class="call-checkbox">
-                        <header class="chat-header">
-                            <label for="conv-none" class="back-button">&larr; Voltar</label>
-                            <span class="chat-avatar">M</span>
-                            <h2>Maria</h2>
-                            <label for="call-maria" class="call-icon" title="Ligar">📞</label>
-                        </header>
-                        <section class="messages">
-                            <p class="message left">Oi, tudo bem?</p>
-                            <p class="message right">Oi Maria! Sim, e você?</p>
-                            <p class="message left">Bem também, obrigado.</p>
-                        </section>
-                        <section class="message-form">
-                            <input type="text" placeholder="Digite sua mensagem..." required>
-                            <button type="button">Enviar</button>
-                        </section>
-                        <section class="call-screen">
-                            <section class="call-card">
-                                <p class="call-status">Chamando...</p>
-                                <div class="call-avatar">M</div>
-                                <h3>Maria</h3>
-                                <div class="call-actions">
-                                    <label for="call-maria" class="button secondary">Desligar</label>
-                                    <a href="teste1.html" class="button">Home</a>
-                                </div>
-                            </section>
-                        </section>
-                    </article>
-                    <article class="conversation conversation-joao">
-                        <input type="checkbox" id="call-joao" class="call-checkbox">
-                        <header class="chat-header">
-                            <label for="conv-none" class="back-button">&larr; Voltar</label>
-                            <span class="chat-avatar">J</span>
-                            <h2>João</h2>
-                            <label for="call-joao" class="call-icon" title="Ligar">📞</label>
-                        </header>
-                        <section class="messages">
-                            <p class="message left">Sobre o quarto...</p>
-                            <p class="message right">Qual quarto?</p>
-                            <p class="message left">O Quarto 1, está disponível?</p>
-                        </section>
-                        <section class="message-form">
-                            <input type="text" placeholder="Digite sua mensagem..." required>
-                            <button type="button">Enviar</button>
-                        </section>
-                        <section class="call-screen">
-                            <section class="call-card">
-                                <p class="call-status">Chamando...</p>
-                                <div class="call-avatar">J</div>
-                                <h3>João</h3>
-                                <div class="call-actions">
-                                    <label for="call-joao" class="button secondary">Desligar</label>
-                                    <a href="teste1.html" class="button">Home</a>
-                                </div>
-                            </section>
-                        </section>
-                    </article>
-                    <article class="conversation conversation-carla">
-                        <input type="checkbox" id="call-carla" class="call-checkbox">
-                        <header class="chat-header">
-                            <label for="conv-none" class="back-button">&larr; Voltar</label>
-                            <span class="chat-avatar">C</span>
-                            <h2>Carla</h2>
-                            <label for="call-carla" class="call-icon" title="Ligar">📞</label>
-                        </header>
-                        <section class="messages">
-                            <p class="message left">Visita agendada!</p>
-                            <p class="message right">Perfeito, até amanhã.</p>
-                        </section>
-                        <section class="message-form">
-                            <input type="text" placeholder="Digite sua mensagem..." required>
-                            <button type="button">Enviar</button>
-                        </section>
-                        <section class="call-screen">
-                            <section class="call-card">
-                                <p class="call-status">Chamando...</p>
-                                <div class="call-avatar">C</div>
-                                <h3>Carla</h3>
-                                <div class="call-actions">
-                                    <label for="call-carla" class="button secondary">Desligar</label>
-                                    <a href="teste1.html" class="button">Home</a>
-                                </div>
-                            </section>
-                        </section>
-                    </article>
-                </section>
-            </section>
-        </section>
-    </section>
-
-    <section id="login" class="modal">
         <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Login</h2>
+
+            <h2>
+                Login
+            </h2>
+
+            <a href="#"
+               class="close">
+                &times;
+            </a>
+
             <form>
-                <label>Email
-                    <input type="email" required>
+
+                <label for="login-email">
+                    Email
                 </label>
-                <label>Senha
-                    <input type="password" required>
+
+                <input type="email"
+                       id="login-email"
+                       required>
+
+                <label for="login-password">
+                    Senha
                 </label>
-                <button type="submit" class="button">Entrar</button>
+
+                <input type="password"
+                       id="login-password"
+                       required>
+
+                <button type="submit"
+                        class="button">
+                    Entrar
+                </button>
+
             </form>
-            <p><a href="#register" class="button secondary">Cadastrar</a></p>
+
+            <p>
+
+                <a href="#register"
+                   class="button secondary">
+                    Cadastrar
+                </a>
+
+            </p>
+
         </section>
+
     </section>
 
-    <section id="register" class="modal">
+    <section id="register"
+             class="modal">
+
+        <h2 class="sr-only">
+            Cadastro
+        </h2>
+
         <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Cadastro</h2>
+
+            <h2>
+                Cadastro
+            </h2>
+
+            <a href="#"
+               class="close">
+                &times;
+            </a>
+
             <form>
-                <label>Nome
-                    <input type="text" required>
+
+                <label for="register-name">
+                    Nome
                 </label>
-                <label>Email
-                    <input type="email" required>
+
+                <input type="text"
+                       id="register-name"
+                       required>
+
+                <label for="register-email">
+                    Email
                 </label>
-                <label>Senha
-                    <input type="password" required>
+
+                <input type="email"
+                       id="register-email"
+                       required>
+
+                <label for="register-password">
+                    Senha
                 </label>
-                <label>Confirmar Senha
-                    <input type="password" required>
+
+                <input type="password"
+                       id="register-password"
+                       required>
+
+                <label for="register-confirm-password">
+                    Confirmar Senha
                 </label>
-                <button type="submit" class="button">Cadastrar</button>
+
+                <input type="password"
+                       id="register-confirm-password"
+                       required>
+
+                <button type="submit"
+                        class="button">
+                    Cadastrar
+                </button>
+
             </form>
+
         </section>
+
     </section>
+
 </body>
+
 </html>

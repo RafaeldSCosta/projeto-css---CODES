@@ -4,1241 +4,223 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ImóveisCo - Home</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link class="styles" rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <h1> ImóveisCo</h1>
+        <h1>ImóveisCo</h1>
         <a href="#login" class="button secondary">Entrar</a>
     </header>
 
     <nav class="top-nav">
-        <a href="teste1.html">Home</a>
-        <a href="favorites.html">Favoritos</a>
-        <a href="chat.html">Chat</a>
-        <a href="profile.html">Perfil</a>
+        <ul>
+            <li><a href="teste1.html">Home</a></li>
+            <li><a href="favorites.html">Favoritos</a></li>
+            <li><a href="chat.html">Chat</a></li>
+            <li><a href="profile.html">Perfil</a></li>
+        </ul>
     </nav>
 
     <main>
-        <section class="toolbar">
-            <input type="text" id="location-search" placeholder="Buscar por localização...">
-            <!-- Alterado para link (href) para abrir o modal apenas com CSS -->
+        <form class="toolbar" action="#" method="get">
+            <label for="location-search" class="visually-hidden">Buscar localização</label>
+            <input type="search" id="location-search" name="q" placeholder="Buscar por localização...">
             <a href="#filters-modal" class="button secondary">⚙️ Filtros</a>
-        </section>
+        </form>
 
-        <!-- Modal de Filtros (Padronizado para HTML/CSS puro) -->
-        <section id="filters-modal" class="modal">
+        <aside id="filters-modal" class="modal">
             <section class="modal-content">
-                <a href="#" class="close">&times;</a>
+                <a href="#" class="close" aria-label="Fechar modal">&times;</a>
                 <h2>Filtrar Imóveis</h2>
                 
-                <div class="filters-content">
+                <fieldset class="filters-content">
+                    <legend class="visually-hidden">Opções de Filtro</legend>
                     <fieldset>
                         <legend>Preço</legend>
-                        <label>Preço máximo: R$ 2.000</label>
-                        <input type="range" id="maxPrice" min="500" max="3000" value="2000" step="100">
+                        <label for="maxPrice">Preço máximo: R$ 2.000</label>
+                        <input type="range" id="maxPrice" name="maxPrice" min="500" max="3000" value="2000" step="100">
                     </fieldset>
 
                     <fieldset>
                         <legend>Quartos</legend>
-                        <div class="filter-options">
-                            <label><input type="checkbox" value="1" class="filter-check"> 1 quarto</label>
-                            <label><input type="checkbox" value="2" class="filter-check"> 2 quartos</label>
-                            <label><input type="checkbox" value="3" class="filter-check"> 3 quartos</label>
-                            <label><input type="checkbox" value="4+" class="filter-check"> 4+ quartos</label>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Banheiros</legend>
-                        <div class="filter-options">
-                            <label><input type="checkbox" value="1" class="filter-check-bath"> 1 banheiro</label>
-                            <label><input type="checkbox" value="2" class="filter-check-bath"> 2 banheiros</label>
-                            <label><input type="checkbox" value="3+" class="filter-check-bath"> 3+ banheiros</label>
-                        </div>
+                        <ul>
+                            <li><label><input type="checkbox" name="bedrooms" value="1"> 1 quarto</label></li>
+                            <li><label><input type="checkbox" name="bedrooms" value="2"> 2 quartos</label></li>
+                            <li><label><input type="checkbox" name="bedrooms" value="3"> 3 quartos</label></li>
+                            <li><label><input type="checkbox" name="bedrooms" value="4+"> 4+ quartos</label></li>
+                        </ul>
                     </fieldset>
 
                     <fieldset>
                         <legend>Pets</legend>
-                        <div class="filter-options">
-                            <label><input type="radio" name="pets-filter" value="any" checked> Indiferente</label>
-                            <label><input type="radio" name="pets-filter" value="yes"> Aceita pets</label>
-                            <label><input type="radio" name="pets-filter" value="no"> Não aceita pets</label>
-                        </div>
+                        <ul>
+                            <li><label><input type="radio" name="pets-filter" value="any" checked> Indiferente</label></li>
+                            <li><label><input type="radio" name="pets-filter" value="yes"> Aceita pets</label></li>
+                        </ul>
                     </fieldset>
-
-                    <fieldset>
-                        <legend>Personalidade</legend>
-                        <div class="filter-options">
-                            <label><input type="radio" name="personality-filter" value="any" checked> Indiferente</label>
-                            <label><input type="radio" name="personality-filter" value="extroverted"> Extrovertido</label>
-                            <label><input type="radio" name="personality-filter" value="introverted"> Introvertido</label>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Estado Civil</legend>
-                        <div class="filter-options">
-                            <label><input type="radio" name="marital-filter" value="any" checked> Indiferente</label>
-                            <label><input type="radio" name="marital-filter" value="single"> Solteiro</label>
-                            <label><input type="radio" name="marital-filter" value="married"> Casado</label>
-                            <label><input type="radio" name="marital-filter" value="dating"> Namorando</label>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Recebe Visitas com Frequência?</legend>
-                        <div class="filter-options">
-                            <label><input type="radio" name="visits-filter" value="any" checked> Indiferente</label>
-                            <label><input type="radio" name="visits-filter" value="yes"> Sim</label>
-                            <label><input type="radio" name="visits-filter" value="no"> Não</label>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Organizado?</legend>
-                        <div class="filter-options">
-                            <label><input type="radio" name="organized-filter" value="any" checked> Indiferente</label>
-                            <label><input type="radio" name="organized-filter" value="yes"> Sim</label>
-                            <label><input type="radio" name="organized-filter" value="no"> Não</label>
-                        </div>
-                    </fieldset>
-                </div>
-
-                <div class="modal-footer">
-                    <a href="#" class="button secondary">Limpar</a>
-                    <a href="#" class="button">Aplicar Filtros</a>
-                </div>
+                    
+                    <button type="reset" class="button secondary">Limpar</button>
+                    <button type="submit" class="button">Aplicar</button>
+                </fieldset>
             </section>
-        </section>
+        </aside>
 
-        <section id="listagem">
-            <article data-price="1200" data-bedrooms="1" data-bathrooms="1" data-pets="yes" data-personality="extroverted" data-marital="single" data-visits="yes" data-organized="yes" data-location="diadema" data-amenities="Elevador,Portaria Eletrônica,Gás Encanado">
-                <input type="checkbox" id="fav-1" class="favorite-checkbox">
-                <label for="fav-1" class="star" aria-label="Favoritar"></label>
-                <figure>
-                    <img src="imagens/apartamento.jpg" alt="Apartamento em Diadema">
-                </figure>
-                <h2>Apartamento</h2>
-                <span class="vacancies"> 1 vaga disponível</span>
-                <h3>R$ 1.200/mês</h3>
-                <aside>
-                    <span> Diadema</span>
-                    <span> 50m²</span>
-                    <span> São Paulo</span>
-                </aside>
-                <p>Quarto aconchegante e bem iluminado, mobiliado com cama de solteiro, guarda-roupa e escrivaninha.</p>
-                <a href="#property-1" class="button">Ver Detalhes</a>
-            </article>
+        <ul id="listagem">
+            <li>
+                <article class="property-card" data-price="1200" data-location="diadema">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-1" name="favorite-1" class="favorite-checkbox" aria-label="Favoritar Apartamento em Diadema">
+                        <label for="fav-1" class="star"></label>
+                    </fieldset>
+                    <figure>
+                        <img src="imagens/apartamento.jpg" alt="Fachada do Imóvel">
+                    </figure>
+                    <h2>Apartamento</h2>
+                    <p><small>1 vaga disponível</small></p>
+                    <h3>R$ 1.200/mês</h3>
+                    <aside>
+                        <ul>
+                            <li><small>Diadema</small></li>
+                            <li><small>50m²</small></li>
+                            <li><small>São Paulo</small></li>
+                        </ul>
+                    </aside>
+                    <p>Quarto aconchegante e mobiliado com cama de solteiro e escrivaninha.</p>
+                    <a href="#property-1" class="button">Ver Detalhes</a>
+                </article>
+            </li>
 
-            <article data-price="1500" data-bedrooms="1" data-bathrooms="1" data-pets="no" data-personality="introverted" data-marital="married" data-visits="no" data-organized="yes" data-location="vila-olimpia" data-amenities="Piscina,Academia,Elevador,Portaria Eletrônica,Gás Encanado,Churrasqueira,Espaço Gourmet">
-                <input type="checkbox" id="fav-2" class="favorite-checkbox">
-                <label for="fav-2" class="star" aria-label="Favoritar"></label>
-                <figure>
-                    <img src="imagens/quarto2.jpg" alt="Studio em Vila Olímpia">
-                </figure>
-                <h2>Studio</h2>
-                <span class="vacancies"> 2 vagas disponíveis</span>
-                <h3>R$ 1.500/mês</h3>
-                <aside>
-                    <span> Vila Olímpia</span>
-                    <span> 65m²</span>
-                    <span> São Paulo</span>
-                </aside>
-                <p>Studio moderno com varanda, suíte privativa e ar-condicionado.</p>
-                <a href="#property-2" class="button">Ver Detalhes</a>
-            </article>
-
-            <article data-price="900" data-bedrooms="2" data-bathrooms="2" data-pets="yes" data-personality="extroverted" data-marital="dating" data-visits="yes" data-organized="no" data-location="zona-leste" data-amenities="Varanda,Garagem,Quintal">
-                <input type="checkbox" id="fav-3" class="favorite-checkbox">
-                <label for="fav-3" class="star" aria-label="Favoritar"></label>
-                <figure>
-                    <img src="imagens/casa1.jpg" alt="Casa na Zona Leste">
-                </figure>
-                <h2>Casa</h2>
-                <span class="vacancies"> 3 vagas disponíveis</span>
-                <h3>R$ 900/mês</h3>
-                <aside>
-                    <span> Zona Leste</span>
-                    <span> 40m²</span>
-                    <span> São Paulo</span>
-                </aside>
-                <p>Quarto simples e limpo, com ventilação cruzada e Localização acessível.</p>
-                <a href="#property-3" class="button">Ver Detalhes</a>
-            </article>
-
-            <article data-price="1000" data-bedrooms="1" data-bathrooms="1" data-pets="yes" data-personality="introverted" data-marital="single" data-visits="no" data-organized="yes" data-location="centro" data-amenities="Portaria 24h,Lavanderia,Wi-fi no prédio,Gás Encanado">
-                <input type="checkbox" id="fav-4" class="favorite-checkbox">
-                <label for="fav-4" class="star" aria-label="Favoritar"></label>
-                <figure>
-                    <img src="imagens/apt1.webp" alt="Kitnet no Centro">
-                </figure>
-                <h2>Kitnet</h2>
-                <span class="vacancies"> 1 vaga disponível</span>
-                <h3>R$ 1.000/mês</h3>
-                <aside>
-                    <span> Centro</span>
-                    <span> 28m²</span>
-                    <span> São Paulo</span>
-                </aside>
-                <p>Kitnet compacta e prática, perfeita para quem quer morar perto de tudo.</p>
-                <a href="#property-4" class="button">Ver Detalhes</a>
-            </article>
-
-            <article data-price="2900" data-bedrooms="3" data-bathrooms="2" data-pets="no" data-personality="extroverted" data-marital="married" data-visits="yes" data-organized="yes" data-location="moema" data-amenities="Piscina,Academia,Elevador,Varanda Gourmet,Portaria Eletrônica">
-                <input type="checkbox" id="fav-5" class="favorite-checkbox">
-                <label for="fav-5" class="star" aria-label="Favoritar"></label>
-                <figure>
-                    <img src="imagens/loft1.jpg" alt="Cobertura em Moema">
-                </figure>
-                <h2>Cobertura</h2>
-                <span class="vacancies"> 1 vaga disponível</span>
-                <h3>R$ 2.900/mês</h3>
-                <aside>
-                    <span> Moema</span>
-                    <span> 95m²</span>
-                    <span> São Paulo</span>
-                </aside>
-                <p>Cobertura elegante com vista incrível e varanda gourmet para receber amigos.</p>
-                <a href="#property-5" class="button">Ver Detalhes</a>
-            </article>
-
-            <article data-price="1800" data-bedrooms="2" data-bathrooms="2" data-pets="yes" data-personality="extroverted" data-marital="single" data-visits="yes" data-organized="yes" data-location="santo-amaro" data-amenities="Piscina,Elevador,Academia,Portaria Eletrônica,Gás Encanado">
-                <input type="checkbox" id="fav-6" class="favorite-checkbox">
-                <label for="fav-6" class="star" aria-label="Favoritar"></label>
-                <figure>
-                    <img src="imagens/quarto5.jpg" alt="Apartamento em Santo Amaro">
-                </figure>
-                <h2>Apartamento</h2>
-                <span class="vacancies"> 2 vagas disponíveis</span>
-                <h3>R$ 1.800/mês</h3>
-                <aside>
-                    <span> Santo Amaro</span>
-                    <span> 80m²</span>
-                    <span> São Paulo</span>
-                </aside>
-                <p>Apartamento espaçoso com cozinha planejada e varanda iluminada.</p>
-                <a href="#property-6" class="button">Ver Detalhes</a>
-            </article>
-
-            <article data-price="2200" data-bedrooms="2" data-bathrooms="2" data-pets="no" data-personality="introverted" data-marital="married" data-visits="no" data-organized="yes" data-location="pinheiros" data-amenities="Academia,Elevador,Portaria Eletrônica,Varanda">
-                <input type="checkbox" id="fav-7" class="favorite-checkbox">
-                <label for="fav-7" class="star" aria-label="Favoritar"></label>
-                <figure>
-                    <img src="imagens/sala.jpg" alt="Loft em Pinheiros">
-                </figure>
-                <h2>Loft</h2>
-                <span class="vacancies"> 1 vaga disponível</span>
-                <h3>R$ 2.200/mês</h3>
-                <aside>
-                    <span> Pinheiros</span>
-                    <span> 75m²</span>
-                    <span> São Paulo</span>
-                </aside>
-                <p>Loft com pé-direito alto, muito estilo e vista para a cidade.</p>
-                <a href="#property-7" class="button">Ver Detalhes</a>
-            </article>
-
-            <article data-price="1400" data-bedrooms="1" data-bathrooms="1" data-pets="yes" data-personality="introverted" data-marital="single" data-visits="yes" data-organized="no" data-location="brooklin" data-amenities="Piscina,Academia,Elevador,Portaria Eletrônica">
-                <input type="checkbox" id="fav-8" class="favorite-checkbox">
-                <label for="fav-8" class="star" aria-label="Favoritar"></label>
-                <figure>
-                    <img src="imagens/quarto4.jpg" alt="Flat no Brooklin">
-                </figure>
-                <h2>Flat</h2>
-                <span class="vacancies"> 1 vaga disponível</span>
-                <h3>R$ 1.400/mês</h3>
-                <aside>
-                    <span> Brooklin</span>
-                    <span> 45m²</span>
-                    <span> São Paulo</span>
-                </aside>
-                <p>Flat completo com serviço de limpeza opcional e área de lazer do condomínio.</p>
-                <a href="#property-8" class="button">Ver Detalhes</a>
-            </article>
-
-            <article data-price="2600" data-bedrooms="3" data-bathrooms="3" data-pets="no" data-personality="extroverted" data-marital="married" data-visits="yes" data-organized="yes" data-location="jardins" data-amenities="Piscina,Academia,Elevador,Portaria Eletrônica,Sauna">
-                <input type="checkbox" id="fav-9" class="favorite-checkbox">
-                <label for="fav-9" class="star" aria-label="Favoritar"></label>
-                <figure>
-                    <img src="imagens/quarto_grande.jpg" alt="Apartamento nos Jardins">
-                </figure>
-                <h2>Apartamento</h2>
-                <span class="vacancies"> 1 vaga disponível</span>
-                <h3>R$ 2.600/mês</h3>
-                <aside>
-                    <span> Jardins</span>
-                    <span> 110m²</span>
-                    <span> São Paulo</span>
-                </aside>
-                <p>Apartamento chique com acabamento premium, ideal para moradia sofisticada.</p>
-                <a href="#property-9" class="button">Ver Detalhes</a>
-            </article>
-
-            <article data-price="1200" data-bedrooms="2" data-bathrooms="2" data-pets="yes" data-personality="extroverted" data-marital="dating" data-visits="yes" data-organized="yes" data-location="lapa" data-amenities="Varanda,Garagem,Quintal,Churrasqueira">
-                <input type="checkbox" id="fav-10" class="favorite-checkbox">
-                <label for="fav-10" class="star" aria-label="Favoritar"></label>
-                <figure>
-                    <img src="imagens/banheiro.jpg" alt="Apartamento Garden na Lapa">
-                </figure>
-                <h2>Apartamento Garden</h2>
-                <span class="vacancies"> 2 vagas disponíveis</span>
-                <h3>R$ 1.200/mês</h3>
-                <aside>
-                    <span> Lapa</span>
-                    <span> 60m²</span>
-                    <span> São Paulo</span>
-                </aside>
-                <p>Apartamento térreo com jardim privativo e área externa para lazer.</p>
-                <a href="#property-10" class="button">Ver Detalhes</a>
-            </article>
-
-            <article data-price="1700" data-bedrooms="1" data-bathrooms="1" data-pets="yes" data-personality="introverted" data-marital="single" data-visits="no" data-organized="yes" data-location="itaim" data-amenities="Academia,Elevador,Portaria Eletrônica,Churrasqueira">
-                <input type="checkbox" id="fav-11" class="favorite-checkbox">
-                <label for="fav-11" class="star" aria-label="Favoritar"></label>
-                <figure>
-                    <img src="imagens/quarto3.jpg" alt="Studio Premium no Itaim">
-                </figure>
-                <h2>Studio Premium</h2>
-                <span class="vacancies"> 1 vaga disponível</span>
-                <h3>R$ 1.700/mês</h3>
-                <aside>
-                    <span> Itaim</span>
-                    <span> 50m²</span>
-                    <span> São Paulo</span>
-                </aside>
-                <p>Studio premium com acabamento sofisticado e espaço otimizado.</p>
-                <a href="#property-11" class="button">Ver Detalhes</a>
-            </article>
-
-            <article data-price="1100" data-bedrooms="1" data-bathrooms="1" data-pets="no" data-personality="introverted" data-marital="single" data-visits="no" data-organized="yes" data-location="liberdade" data-amenities="Portaria 24h,Wi-fi no prédio,Gás Encanado">
-                <input type="checkbox" id="fav-12" class="favorite-checkbox">
-                <label for="fav-12" class="star" aria-label="Favoritar"></label>
-                <figure>
-                    <img src="imagens/quarto4.jpg" alt="Apartamento na Liberdade">
-                </figure>
-                <h2>Apartamento Compacto</h2>
-                <span class="vacancies"> 1 vaga disponível</span>
-                <h3>R$ 1.100/mês</h3>
-                <aside>
-                    <span> Liberdade</span>
-                    <span> 36m²</span>
-                    <span> São Paulo</span>
-                </aside>
-                <p>Apartamento compacto e funcional, próximo ao metrô e comércio local.</p>
-                <a href="#property-12" class="button">Ver Detalhes</a>
-            </article>
-
-            <article data-price="2300" data-bedrooms="2" data-bathrooms="2" data-pets="yes" data-personality="extroverted" data-marital="single" data-visits="yes" data-organized="yes" data-location="vila-madalena" data-amenities="Academia,Elevador,Portaria Eletrônica,Varanda">
-                <input type="checkbox" id="fav-13" class="favorite-checkbox">
-                <label for="fav-13" class="star" aria-label="Favoritar"></label>
-                <figure>
-                    <img src="imagens/loft1.jpg" alt="Loft Industrial na Vila Madalena">
-                </figure>
-                <h2>Loft</h2>
-                <span class="vacancies"> 1 vaga disponível</span>
-                <h3>R$ 2.300/mês</h3>
-                <aside>
-                    <span> Vila Madalena</span>
-                    <span> 70m²</span>
-                    <span> São Paulo</span>
-                </aside>
-                <p>Loft industrial com pé-direito alto e decoração contemporânea.</p>
-                <a href="#property-13" class="button">Ver Detalhes</a>
-            </article>
-
-            <article data-price="1500" data-bedrooms="2" data-bathrooms="1" data-pets="yes" data-personality="introverted" data-marital="single" data-visits="no" data-organized="yes" data-location="mairipora" data-amenities="Quintal,Garagem,Área Verde">
-                <input type="checkbox" id="fav-14" class="favorite-checkbox">
-                <label for="fav-14" class="star" aria-label="Favoritar"></label>
-                <figure>
-                    <img src="imagens/casa2.jpg" alt="Casa de Campo em Mairiporã">
-                </figure>
-                <h2>Casa</h2>
-                <span class="vacancies"> 2 vagas disponíveis</span>
-                <h3>R$ 1.500/mês</h3>
-                <aside>
-                    <span> Mairiporã</span>
-                    <span> 75m²</span>
-                    <span> Região Metropolitana</span>
-                </aside>
-                <p>Casa de campo com quintal, ideal para quem busca calma e contato com a natureza.</p>
-                <a href="#property-14" class="button">Ver Detalhes</a>
-            </article>
-
-            <article data-price="2000" data-bedrooms="3" data-bathrooms="2" data-pets="no" data-personality="married" data-visits="yes" data-organized="yes" data-location="penha" data-amenities="Piscina,Portaria 24h,Quadra Poliesportiva,Salão de Festas">
-                <input type="checkbox" id="fav-15" class="favorite-checkbox">
-                <label for="fav-15" class="star" aria-label="Favoritar"></label>
-                <figure>
-                    <img src="imagens/casa3.jpg" alt="Apartamento em Penha">
-                </figure>
-                <h2>Apartamento</h2>
-                <span class="vacancies"> 2 vagas disponíveis</span>
-                <h3>R$ 2.000/mês</h3>
-                <aside>
-                    <span> Penha</span>
-                    <span> 90m²</span>
-                    <span> São Paulo</span>
-                </aside>
-                <p>Apartamento em condomínio completo, ótimo para famílias com lazer completo.</p>
-                <a href="#property-15" class="button">Ver Detalhes</a>
-            </article>
-        </section>
+            <li>
+                <article class="property-card" data-price="1500" data-location="vila-olimpia">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-2" name="favorite-2" class="favorite-checkbox" aria-label="Favoritar Studio em Vila Olímpia">
+                        <label for="fav-2" class="star"></label>
+                    </fieldset>
+                    <figure>
+                        <img src="imagens/quarto2.jpg" alt="Interior do Studio">
+                    </figure>
+                    <h2>Studio</h2>
+                    <p><small>2 vagas disponíveis</small></p>
+                    <h3>R$ 1.500/mês</h3>
+                    <aside>
+                        <ul>
+                            <li><small>Vila Olímpia</small></li>
+                            <li><small>65m²</small></li>
+                            <li><small>São Paulo</small></li>
+                        </ul>
+                    </aside>
+                    <p>Studio moderno com varanda, suíte privativa e ar-condicionado.</p>
+                    <a href="#property-2" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+        </ul>
     </main>
 
-    <footer>
-        <p><strong>© 2026 ImóveisCo - Encontre seu Imóvel ideal</strong></p>
-        <p>Criado com carinho para quem procura o imóvel perfeito</p>
-    </footer>
-
-    <section id="login" class="modal">
+    <aside id="login" class="modal">
         <section class="modal-content">
-            <a href="#" class="close">&times;</a>
+            <a href="#" class="close" aria-label="Fechar login">&times;</a>
             <h2>Login</h2>
-            <form>
-                <label>Email
-                    <input type="email" required>
-                </label>
-                <label>Senha
-                    <input type="password" required>
-                </label>
+            <form action="#" method="post">
+                <p>
+                    <label for="login-email">Email</label><br>
+                    <input type="email" id="login-email" name="email" required>
+                </p>
+                <p>
+                    <label for="login-password">Senha</label><br>
+                    <input type="password" id="login-password" name="password" required>
+                </p>
                 <button type="submit" class="button">Entrar</button>
             </form>
-            <p><a href="#register" class="button secondary">Cadastrar</a></p>
+            <p>Não tem conta? <a href="#register" class="button secondary">Cadastrar</a></p>
         </section>
-    </section>
+    </aside>
 
-    <section id="register" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Cadastro</h2>
-            <form>
-                <label>Nome
-                    <input type="text" required>
-                </label>
-                <label>Email
-                    <input type="email" required>
-                </label>
-                <label>Senha
-                    <input type="password" required>
-                </label>
-                <label>Confirmar Senha
-                    <input type="password" required>
-                </label>
-                <button type="submit" class="button">Cadastrar</button>
-            </form>
-        </section>
-    </section>
-
-    <section id="property-1" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
+    <aside id="property-1" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close" aria-label="Fechar detalhes">&times;</a>
             <h2>Apartamento - Diadema</h2>
             <figure>
                 <img src="imagens/apartamento.jpg" alt="Apartamento em Diadema">
             </figure>
             <p><strong>R$ 1.200/mês</strong></p>
-            <p>Quarto aconchegante e bem iluminado, mobiliado com cama de solteiro, guarda-roupa e escrivaninha.</p>
-            <h3>Características do Imóvel</h3>
-            <div class="property-details">
-                <p><strong>Quartos:</strong> 1</p>
-                <p><strong>Banheiros:</strong> 1</p>
-                <p><strong>Área:</strong> 50m²</p>
-            </div>
-            <h3>Comodidades Disponíveis</h3>
-            <div class="condo-features">
-                <p>✓ Elevador</p>
-                <p>✓ Portaria Eletrônica</p>
-                <p>✓ Gás Encanado</p>
-            </div>
+            <h3>Características</h3>
+            <ul>
+                <li>Quartos: 1</li>
+                <li>Área: 50m²</li>
+            </ul>
             <h3>Moradores</h3>
-            <section class="residents-grid">
-                <a href="#resident-ana" class="resident-card">
-                    <span class="resident-avatar"><img src="imagens/camila.png" alt="Ana"></span>
-                    <span class="resident-name">Ana</span>
-                </a>
-                <a href="#resident-carlos" class="resident-card">
-                    <span class="resident-avatar"><img src="imagens/jose.png" alt="Carlos"></span>
-                    <span class="resident-name">Carlos</span>
-                </a>
-            </section>
+            <ul>
+                <li><a href="#resident-ana"><strong>Ana</strong> - Ver Perfil</a></li>
+            </ul>
             <a href="#" class="button">Agendar Visita</a>
-        </section>
-    </section>
+        </article>
+    </aside>
 
-    <section id="property-2" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Studio - Vila Olímpia</h2>
-            <figure>
-                <img src="imagens/quarto2.jpg" alt="Studio em Vila Olímpia">
-            </figure>
-            <p><strong>R$ 1.500/mês</strong></p>
-            <p>Studio moderno com varanda, suíte privativa e ar-condicionado.</p>
-            <h3>Características do Imóvel</h3>
-            <div class="property-details">
-                <p><strong>Quartos:</strong> 1</p>
-                <p><strong>Banheiros:</strong> 1</p>
-                <p><strong>Área:</strong> 65m²</p>
-            </div>
-            <h3>Comodidades Disponíveis</h3>
-            <div class="condo-features">
-                <p>✓ Piscina</p>
-                <p>✓ Academia</p>
-                <p>✓ Elevador</p>
-                <p>✓ Portaria Eletrônica</p>
-                <p>✓ Gás Encanado</p>
-                <p>✓ Churrasqueira</p>
-                <p>✓ Espaço Gourmet</p>
-            </div>
-            <h3>Moradores</h3>
-            <section class="residents-grid">
-                <a href="#resident-pedro" class="resident-card">
-                    <span class="resident-avatar"><img src="imagens/roger.png" alt="Pedro"></span>
-                    <span class="resident-name">Pedro</span>
-                </a>
-            </section>
-            <a href="#" class="button">Agendar Visita</a>
-        </section>
-    </section>
-
-    <section id="property-3" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Casa - Zona Leste</h2>
-            <figure>
-                <img src="imagens/casa1.jpg" alt="Casa na Zona Leste">
-            </figure>
-            <p><strong>R$ 900/mês</strong></p>
-            <p>Quarto simples e limpo, com ventilação cruzada e Localização acessível.</p>
-            <h3>Características do Imóvel</h3>
-            <div class="property-details">
-                <p><strong>Quartos:</strong> 2</p>
-                <p><strong>Banheiros:</strong> 2</p>
-                <p><strong>Área:</strong> 40m²</p>
-            </div>
-            <h3>Comodidades Disponíveis</h3>
-            <div class="condo-features">
-                <p>✓ Varanda</p>
-                <p>✓ Garagem</p>
-                <p>✓ Quintal</p>
-            </div>
-            <h3>Moradores</h3>
-            <section class="residents-grid">
-                <a href="#resident-maria" class="resident-card">
-                    <span class="resident-avatar"><img src="imagens/maria.png" alt="Maria"></span>
-                    <span class="resident-name">Maria</span>
-                </a>
-                <a href="#resident-joao" class="resident-card">
-                    <span class="resident-avatar"><img src="imagens/user.png" alt="João"></span>
-                    <span class="resident-name">João</span>
-                </a>
-            </section>
-            <a href="#" class="button">Agendar Visita</a>
-        </section>
-    </section>
-
-    <section id="property-4" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Kitnet - Centro</h2>
-            <figure>
-                <img src="imagens/apt1.webp" alt="Kitnet no Centro">
-            </figure>
-            <p><strong>R$ 1.000/mês</strong></p>
-            <p>Kitnet compacta e prática, perfeita para quem quer morar perto de tudo.</p>
-            <h3>Características do Imóvel</h3>
-            <div class="property-details">
-                <p><strong>Quartos:</strong> 1</p>
-                <p><strong>Banheiros:</strong> 1</p>
-                <p><strong>Área:</strong> 28m²</p>
-            </div>
-            <h3>Comodidades Disponíveis</h3>
-            <div class="condo-features">
-                <p>✓ Portaria 24h</p>
-                <p>✓ Lavanderia coletiva</p>
-                <p>✓ Wi-fi no prédio</p>
-                <p>✓ Gás Encanado</p>
-            </div>
-            <h3>Moradores</h3>
-            <section class="residents-grid">
-                <a href="#resident-ana" class="resident-card">
-                    <span class="resident-avatar"><img src="imagens/camila.png" alt="Ana"></span>
-                    <span class="resident-name">Ana</span>
-                </a>
-            </section>
-            <a href="#" class="button">Agendar Visita</a>
-        </section>
-    </section>
-
-    <section id="property-5" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Cobertura - Moema</h2>
-            <figure>
-                <img src="imagens/loft1.jpg" alt="Cobertura em Moema">
-            </figure>
-            <p><strong>R$ 2.900/mês</strong></p>
-            <p>Cobertura elegante com vista incrível e varanda gourmet para receber amigos.</p>
-            <h3>Características do Imóvel</h3>
-            <div class="property-details">
-                <p><strong>Quartos:</strong> 3</p>
-                <p><strong>Banheiros:</strong> 2</p>
-                <p><strong>Área:</strong> 95m²</p>
-            </div>
-            <h3>Comodidades Disponíveis</h3>
-            <div class="condo-features">
-                <p>✓ Piscina</p>
-                <p>✓ Academia</p>
-                <p>✓ Elevador</p>
-                <p>✓ Varanda Gourmet</p>
-                <p>✓ Portaria Eletrônica</p>
-            </div>
-            <h3>Moradores</h3>
-            <section class="residents-grid">
-                <a href="#resident-carlos" class="resident-card">
-                    <span class="resident-avatar"><img src="imagens/jose.png" alt="Carlos"></span>
-                    <span class="resident-name">Carlos</span>
-                </a>
-                <a href="#resident-pedro" class="resident-card">
-                    <span class="resident-avatar"><img src="imagens/roger.png" alt="Pedro"></span>
-                    <span class="resident-name">Pedro</span>
-                </a>
-            </section>
-            <a href="#" class="button">Agendar Visita</a>
-        </section>
-    </section>
-
-    <section id="property-6" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Apartamento - Santo Amaro</h2>
-            <figure>
-                <img src="imagens/quarto5.jpg" alt="Apartamento em Santo Amaro">
-            </figure>
-            <p><strong>R$ 1.800/mês</strong></p>
-            <p>Apartamento espaçoso com cozinha planejada e varanda iluminada.</p>
-            <h3>Características do Imóvel</h3>
-            <div class="property-details">
-                <p><strong>Quartos:</strong> 2</p>
-                <p><strong>Banheiros:</strong> 2</p>
-                <p><strong>Área:</strong> 80m²</p>
-            </div>
-            <h3>Comodidades Disponíveis</h3>
-            <div class="condo-features">
-                <p>✓ Piscina</p>
-                <p>✓ Academia</p>
-                <p>✓ Elevador</p>
-                <p>✓ Portaria Eletrônica</p>
-                <p>✓ Gás Encanado</p>
-            </div>
-            <h3>Moradores</h3>
-            <section class="residents-grid">
-                <a href="#resident-maria" class="resident-card">
-                    <span class="resident-avatar">M</span>
-                    <span class="resident-name">Maria</span>
-                </a>
-            </section>
-            <a href="#" class="button">Agendar Visita</a>
-        </section>
-    </section>
-
-    <section id="property-7" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Loft - Pinheiros</h2>
-            <figure>
-                <img src="imagens/sala.jpg" alt="Loft em Pinheiros">
-            </figure>
-            <p><strong>R$ 2.200/mês</strong></p>
-            <p>Loft com pé-direito alto e design industrial próximo a cafés e cultura.</p>
-            <h3>Características do Imóvel</h3>
-            <div class="property-details">
-                <p><strong>Quartos:</strong> 1</p>
-                <p><strong>Banheiros:</strong> 2</p>
-                <p><strong>Área:</strong> 75m²</p>
-            </div>
-            <h3>Comodidades Disponíveis</h3>
-            <div class="condo-features">
-                <p>✓ Academia</p>
-                <p>✓ Elevador</p>
-                <p>✓ Portaria Eletrônica</p>
-                <p>✓ Varanda</p>
-            </div>
-            <h3>Moradores</h3>
-            <section class="residents-grid">
-                <a href="#resident-carlos" class="resident-card">
-                    <span class="resident-avatar">C</span>
-                    <span class="resident-name">Carlos</span>
-                </a>
-            </section>
-            <a href="#" class="button">Agendar Visita</a>
-        </section>
-    </section>
-
-    <section id="property-8" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Flat - Brooklin</h2>
-            <figure>
-                <img src="imagens/quarto4.jpg" alt="Flat no Brooklin">
-            </figure>
-            <p><strong>R$ 1.400/mês</strong></p>
-            <p>Flat completo com serviço opcional e acesso rápido para av. Berrini.</p>
-            <h3>Características do Imóvel</h3>
-            <div class="property-details">
-                <p><strong>Quartos:</strong> 1</p>
-                <p><strong>Banheiros:</strong> 1</p>
-                <p><strong>Área:</strong> 45m²</p>
-            </div>
-            <h3>Comodidades Disponíveis</h3>
-            <div class="condo-features">
-                <p>✓ Piscina</p>
-                <p>✓ Academia</p>
-                <p>✓ Elevador</p>
-                <p>✓ Portaria Eletrônica</p>
-            </div>
-            <h3>Moradores</h3>
-            <section class="residents-grid">
-                <a href="#resident-joao" class="resident-card">
-                    <span class="resident-avatar">J</span>
-                    <span class="resident-name">João</span>
-                </a>
-            </section>
-            <a href="#" class="button">Agendar Visita</a>
-        </section>
-    </section>
-
-    <section id="property-9" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Apartamento - Jardins</h2>
-            <figure>
-                <img src="imagens/quarto_grande.jpg" alt="Apartamento nos Jardins">
-            </figure>
-            <p><strong>R$ 2.600/mês</strong></p>
-            <p>Apartamento sofisticado com acabamento premium e vista ampla da cidade.</p>
-            <h3>Características do Imóvel</h3>
-            <div class="property-details">
-                <p><strong>Quartos:</strong> 3</p>
-                <p><strong>Banheiros:</strong> 2</p>
-                <p><strong>Área:</strong> 110m²</p>
-            </div>
-            <h3>Comodidades Disponíveis</h3>
-            <div class="condo-features">
-                <p>✓ Piscina</p>
-                <p>✓ Academia</p>
-                <p>✓ Elevador</p>
-                <p>✓ Sauna</p>
-            </div>
-            <h3>Moradores</h3>
-            <section class="residents-grid">
-                <a href="#resident-ana" class="resident-card">
-                    <span class="resident-avatar">A</span>
-                    <span class="resident-name">Ana</span>
-                </a>
-            </section>
-            <a href="#" class="button">Agendar Visita</a>
-        </section>
-    </section>
-
-    <section id="property-10" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Apartamento Garden - Lapa</h2>
-            <figure>
-                <img src="imagens/banheiro.jpg" alt="Apartamento Garden na Lapa">
-            </figure>
-            <p><strong>R$ 1.200/mês</strong></p>
-            <p>Apartamento térreo com jardim privativo e área externa para receber amigos.</p>
-            <h3>Características do Imóvel</h3>
-            <div class="property-details">
-                <p><strong>Quartos:</strong> 2</p>
-                <p><strong>Banheiros:</strong> 2</p>
-                <p><strong>Área:</strong> 60m²</p>
-            </div>
-            <h3>Comodidades Disponíveis</h3>
-            <div class="condo-features">
-                <p>✓ Varanda</p>
-                <p>✓ Garagem</p>
-                <p>✓ Quintal</p>
-                <p>✓ Churrasqueira</p>
-            </div>
-            <h3>Moradores</h3>
-            <section class="residents-grid">
-                <a href="#resident-carlos" class="resident-card">
-                    <span class="resident-avatar">C</span>
-                    <span class="resident-name">Carlos</span>
-                </a>
-            </section>
-            <a href="#" class="button">Agendar Visita</a>
-        </section>
-    </section>
-
-    <section id="property-11" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Studio Premium - Itaim</h2>
-            <figure>
-                <img src="imagens/quarto3.jpg" alt="Studio Premium no Itaim">
-            </figure>
-            <p><strong>R$ 1.700/mês</strong></p>
-            <p>Studio moderno com acabamento de luxo e espaços bem aproveitados.</p>
-            <h3>Características do Imóvel</h3>
-            <div class="property-details">
-                <p><strong>Quartos:</strong> 1</p>
-                <p><strong>Banheiros:</strong> 1</p>
-                <p><strong>Área:</strong> 50m²</p>
-            </div>
-            <h3>Comodidades Disponíveis</h3>
-            <div class="condo-features">
-                <p>✓ Academia</p>
-                <p>✓ Elevador</p>
-                <p>✓ Portaria Eletrônica</p>
-                <p>✓ Churrasqueira</p>
-            </div>
-            <h3>Moradores</h3>
-            <section class="residents-grid">
-                <a href="#resident-pedro" class="resident-card">
-                    <span class="resident-avatar">P</span>
-                    <span class="resident-name">Pedro</span>
-                </a>
-            </section>
-            <a href="#" class="button">Agendar Visita</a>
-        </section>
-    </section>
-
-    <section id="property-12" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Apartamento Compacto - Liberdade</h2>
-            <figure>
-                <img src="imagens/quarto4.jpg" alt="Apartamento na Liberdade">
-            </figure>
-            <p><strong>R$ 1.100/mês</strong></p>
-            <p>Compacto e bem localizado, perfeito para quem quer praticidade no dia a dia.</p>
-            <h3>Características do Imóvel</h3>
-            <div class="property-details">
-                <p><strong>Quartos:</strong> 1</p>
-                <p><strong>Banheiros:</strong> 1</p>
-                <p><strong>Área:</strong> 36m²</p>
-            </div>
-            <h3>Comodidades Disponíveis</h3>
-            <div class="condo-features">
-                <p>✓ Portaria 24h</p>
-                <p>✓ Wi-fi no prédio</p>
-                <p>✓ Gás Encanado</p>
-            </div>
-            <h3>Moradores</h3>
-            <section class="residents-grid">
-                <a href="#resident-maria" class="resident-card">
-                    <span class="resident-avatar">M</span>
-                    <span class="resident-name">Maria</span>
-                </a>
-            </section>
-            <a href="#" class="button">Agendar Visita</a>
-        </section>
-    </section>
-
-    <section id="property-13" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Loft - Vila Madalena</h2>
-            <figure>
-                <img src="imagens/loft1.jpg" alt="Loft Industrial na Vila Madalena">
-            </figure>
-            <p><strong>R$ 2.300/mês</strong></p>
-            <p>Loft com estilo industrial e muita luz natural em região cultural da cidade.</p>
-            <h3>Características do Imóvel</h3>
-            <div class="property-details">
-                <p><strong>Quartos:</strong> 2</p>
-                <p><strong>Banheiros:</strong> 2</p>
-                <p><strong>Área:</strong> 70m²</p>
-            </div>
-            <h3>Comodidades Disponíveis</h3>
-            <div class="condo-features">
-                <p>✓ Academia</p>
-                <p>✓ Elevador</p>
-                <p>✓ Portaria Eletrônica</p>
-                <p>✓ Varanda</p>
-            </div>
-            <h3>Moradores</h3>
-            <section class="residents-grid">
-                <a href="#resident-joao" class="resident-card">
-                    <span class="resident-avatar">J</span>
-                    <span class="resident-name">João</span>
-                </a>
-            </section>
-            <a href="#" class="button">Agendar Visita</a>
-        </section>
-    </section>
-
-    <section id="property-14" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Casa - Mairiporã</h2>
-            <figure>
-                <img src="imagens/casa2.jpg" alt="Casa de Campo em Mairiporã">
-            </figure>
-            <p><strong>R$ 1.500/mês</strong></p>
-            <p>Casa de campo com quintal, ideal para quem busca paz e natureza.</p>
-            <h3>Características do Imóvel</h3>
-            <div class="property-details">
-                <p><strong>Quartos:</strong> 2</p>
-                <p><strong>Banheiros:</strong> 1</p>
-                <p><strong>Área:</strong> 75m²</p>
-            </div>
-            <h3>Comodidades Disponíveis</h3>
-            <div class="condo-features">
-                <p>✓ Quintal</p>
-                <p>✓ Garagem</p>
-                <p>✓ Área Verde</p>
-            </div>
-            <h3>Moradores</h3>
-            <section class="residents-grid">
-                <a href="#resident-carlos" class="resident-card">
-                    <span class="resident-avatar">C</span>
-                    <span class="resident-name">Carlos</span>
-                </a>
-            </section>
-            <a href="#" class="button">Agendar Visita</a>
-        </section>
-    </section>
-
-    <section id="property-15" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Apartamento - Penha</h2>
-            <figure>
-                <img src="imagens/casa3.jpg" alt="Apartamento em Penha">
-            </figure>
-            <p><strong>R$ 2.000/mês</strong></p>
-            <p>Apartamento em condomínio completo, perfeito para famílias que procuram lazer total.</p>
-            <h3>Características do Imóvel</h3>
-            <div class="property-details">
-                <p><strong>Quartos:</strong> 3</p>
-                <p><strong>Banheiros:</strong> 2</p>
-                <p><strong>Área:</strong> 90m²</p>
-            </div>
-            <h3>Comodidades Disponíveis</h3>
-            <div class="condo-features">
-                <p>✓ Piscina</p>
-                <p>✓ Portaria 24h</p>
-                <p>✓ Quadra Poliesportiva</p>
-                <p>✓ Salão de Festas</p>
-            </div>
-            <h3>Moradores</h3>
-            <section class="residents-grid">
-                <a href="#resident-pedro" class="resident-card">
-                    <span class="resident-avatar">P</span>
-                    <span class="resident-name">Pedro</span>
-                </a>
-            </section>
-            <a href="#" class="button">Agendar Visita</a>
-        </section>
-    </section>
-
-    <section id="resident-ana" class="modal">
-        <section class="modal-content">
-            <a href="#property-1" class="close">&times;</a>
+    <aside id="resident-ana" class="modal">
+        <article class="modal-content">
+            <a href="#property-1" class="close" aria-label="Voltar">&times;</a>
             <h2>Ana</h2>
-            <p><strong>Idade:</strong> 25</p>
-            <p><strong>Gênero:</strong> Feminino</p>
-            <p><strong>Trabalho:</strong> Estudante</p>
-            <p><strong>Hobbies:</strong> Leitura, música</p>
-            <a href="#chat-modal" class="button">Chat</a>
-            <button type="button" class="button secondary">Match</button>
-        </section>
-    </section>
+            <ul>
+                <li>Idade: 25</li>
+                <li>Gênero: Feminino</li>
+                <li>Trabalho: Estudante</li>
+            </ul>
+            <a href="#chat-modal" class="button">Conversar</a>
+        </article>
+    </aside>
 
-    <section id="resident-carlos" class="modal">
-        <section class="modal-content">
-            <a href="#property-1" class="close">&times;</a>
-            <h2>Carlos</h2>
-            <p><strong>Idade:</strong> 28</p>
-            <p><strong>Gênero:</strong> Masculino</p>
-            <p><strong>Trabalho:</strong> Designer</p>
-            <p><strong>Hobbies:</strong> Artes, Viagens</p>
-            <a href="#chat-modal" class="button">Chat</a>
-            <button type="button" class="button secondary">Match</button>
-        </section>
-    </section>
-
-    <section id="resident-pedro" class="modal">
-        <section class="modal-content">
-            <a href="#property-2" class="close">&times;</a>
-            <h2>Pedro</h2>
-            <p><strong>Idade:</strong> 30</p>
-            <p><strong>Gênero:</strong> Masculino</p>
-            <p><strong>Trabalho:</strong> Engenheiro</p>
-            <p><strong>Hobbies:</strong> Esportes, Tecnologia</p>
-            <a href="#chat-modal" class="button">Chat</a>
-            <button type="button" class="button secondary">Match</button>
-        </section>
-    </section>
-
-    <section id="resident-maria" class="modal">
-        <section class="modal-content">
-            <a href="#property-3" class="close">&times;</a>
-            <h2>Maria</h2>
-            <p><strong>Idade:</strong> 22</p>
-            <p><strong>Gênero:</strong> Feminino</p>
-            <p><strong>Trabalho:</strong> Estudante</p>
-            <p><strong>Hobbies:</strong> Dança, Cinema</p>
-            <a href="#chat-modal" class="button">Chat</a>
-            <button type="button" class="button secondary">Match</button>
-        </section>
-    </section>
-
-    <section id="resident-joao" class="modal">
-        <section class="modal-content">
-            <a href="#property-3" class="close">&times;</a>
-            <h2>João</h2>
-            <p><strong>Idade:</strong> 26</p>
-            <p><strong>Gênero:</strong> Masculino</p>
-            <p><strong>Trabalho:</strong> Programador</p>
-            <p><strong>Hobbies:</strong> Jogos, música</p>
-            <a href="#chat-modal" class="button">Chat</a>
-            <button type="button" class="button secondary">Match</button>
-        </section>
-    </section>
+    <footer>
+        <p><strong>© 2026 ImóveisCo</strong></p>
+    </footer>
 
     <nav id="bottom-nav" aria-label="Navegação inferior">
         <ul>
-            <li><a href="teste1.html"><img src="imagens/home.png" alt="Home"></a></li>
+            <li><a href="teste1.html"><img src="imagens/home.png" alt="Início"></a></li>
             <li><a href="favorites.html"><img src="imagens/like.png" alt="Favoritos"></a></li>
-            <li><a href="#chat-modal"><img src="imagens/messagens.png" alt="Chat"></a></li>
+            <li><a href="#chat-modal"><img src="imagens/messagens.png" alt="Mensagens"></a></li>
             <li><a href="profile.html"><img src="imagens/user.png" alt="Perfil"></a></li>
         </ul>
     </nav>
 
-    <section id="chat-modal" class="modal chat-modal">
-        <section class="modal-content chat-modal-content">
-            <a href="#" class="close">&times;</a>
-            <section class="chat-layout">
-                <input type="radio" id="conv-none" name="conversation" checked hidden>
-                <input type="radio" id="conv-ana" name="conversation" hidden>
-                <input type="radio" id="conv-carlos" name="conversation" hidden>
-                <input type="radio" id="conv-pedro" name="conversation" hidden>
-                <input type="radio" id="conv-maria" name="conversation" hidden>
-                <input type="radio" id="conv-joao" name="conversation" hidden>
-                <input type="radio" id="conv-carla" name="conversation" hidden>
+    <aside id="chat-modal" class="modal chat-modal">
+        <fieldset class="modal-content chat-modal-content">
+            <legend class="visually-hidden">Janela de Chat</legend>
+            <a href="#" class="close" aria-label="Fechar chat">&times;</a>
+            
+            <fieldset class="chat-layout">
+                <legend class="visually-hidden">Conversas</legend>
+                <input type="radio" id="conv-ana" name="conversation" value="ana" checked hidden>
+                
+                <nav class="chat-list" aria-label="Contatos">
+                    <ul>
+                        <li>
+                            <label for="conv-ana" class="chat-item">
+                                <img src="imagens/user.png" alt="Avatar">
+                                <strong>Ana</strong>
+                            </label>
+                        </li>
+                    </ul>
+                </nav>
 
-                <section class="chat-list">
-                    <label for="conv-ana" class="chat-item">
-                        <span class="chat-avatar"><img src="imagens/user.png" alt="Ana"></span>
-                        <section>
-                            <span class="chat-name">Ana</span>
-                            <p>Olá, vamos conversar?</p>
-                        </section>
-                    </label>
-                    <label for="conv-carlos" class="chat-item">
-                        <span class="chat-avatar"><img src="imagens/jose.png" alt="Carlos"></span>
-                        <section>
-                            <span class="chat-name">Carlos</span>
-                            <p>Sobre o quarto...</p>
-                        </section>
-                    </label>
-                    <label for="conv-pedro" class="chat-item">
-                        <span class="chat-avatar"><img src="imagens/roger.png" alt="Pedro"></span>
-                        <section>
-                            <span class="chat-name">Pedro</span>
-                            <p>Temos horários livres.</p>
-                        </section>
-                    </label>
-                    <label for="conv-maria" class="chat-item">
-                        <span class="chat-avatar"><img src="imagens/maria.png" alt="Maria"></span>
-                        <section>
-                            <span class="chat-name">Maria</span>
-                            <p>Oi, tudo bem?</p>
-                        </section>
-                    </label>
-                    <label for="conv-joao" class="chat-item">
-                        <span class="chat-avatar"><img src="imagens/user.png" alt="João"></span>
-                        <section>
-                            <span class="chat-name">João</span>
-                            <p>Sobre o quarto...</p>
-                        </section>
-                    </label>
-                    <label for="conv-carla" class="chat-item">
-                        <span class="chat-avatar"><img src="imagens/camila.png" alt="Carla"></span>
-                        <section>
-                            <span class="chat-name">Carla</span>
-                            <p>Visita agendada!</p>
-                        </section>
-                    </label>
-                </section>
-
-                <section class="chat-content">
-                    <article class="conversation conversation-maria">
-                        <input type="checkbox" id="call-maria" class="call-checkbox">
-                        <header class="chat-header">
-                            <label for="conv-none" class="back-button">&larr; Voltar</label>
-                            <span class="chat-avatar"><img src="imagens/maria.png" alt="Maria"></span>
-                            <h2>Maria</h2>
-                            <label for="call-maria" class="call-icon" title="Ligar">📞</label>
-                        </header>
-                        <section class="messages">
-                            <p class="message left">Oi, tudo bem?</p>
-                            <p class="message right">Oi Maria! Sim, e você?</p>
-                            <p class="message left">Bem também, obrigado.</p>
-                        </section>
-                        <section class="message-form">
-                            <input type="text" placeholder="Digite sua mensagem..." required>
-                            <button type="button">Enviar</button>
-                        </section>
-                        <section class="call-screen">
-                            <section class="call-card">
-                                <p class="call-status">Chamando...</p>
-                                <div class="call-avatar"><img src="imagens/maria.png" alt="Maria"></div>
-                                <h3>Maria</h3>
-                                <div class="call-actions">
-                                    <label for="call-maria" class="button secondary">Desligar</label>
-                                    <a href="teste1.html" class="button">Home</a>
-                                </div>
-                            </section>
-                        </section>
-                    </article>
-                    <article class="conversation conversation-joao">
-                        <input type="checkbox" id="call-joao" class="call-checkbox">
-                        <header class="chat-header">
-                            <label for="conv-none" class="back-button">&larr; Voltar</label>
-                            <span class="chat-avatar"><img src="imagens/user.png" alt="João"></span>
-                            <h2>João</h2>
-                            <label for="call-joao" class="call-icon" title="Ligar">📞</label>
-                        </header>
-                        <section class="messages">
-                            <p class="message left">Sobre o quarto...</p>
-                            <p class="message right">Qual quarto?</p>
-                            <p class="message left">O Quarto 1, está disponível?</p>
-                        </section>
-                        <section class="message-form">
-                            <input type="text" placeholder="Digite sua mensagem..." required>
-                            <button type="button">Enviar</button>
-                        </section>
-                        <section class="call-screen">
-                            <section class="call-card">
-                                <p class="call-status">Chamando...</p>
-                                <div class="call-avatar"><img src="imagens/user.png" alt="João"></div>
-                                <h3>João</h3>
-                                <div class="call-actions">
-                                    <label for="call-joao" class="button secondary">Desligar</label>
-                                    <a href="teste1.html" class="button">Home</a>
-                                </div>
-                            </section>
-                        </section>
-                    </article>
-                    <article class="conversation conversation-carla">
-                        <input type="checkbox" id="call-carla" class="call-checkbox">
-                        <header class="chat-header">
-                            <label for="conv-none" class="back-button">&larr; Voltar</label>
-                            <span class="chat-avatar"><img src="imagens/camila.png" alt="Carla"></span>
-                            <h2>Carla</h2>
-                            <label for="call-carla" class="call-icon" title="Ligar">📞</label>
-                        </header>
-                        <section class="messages">
-                            <p class="message left">Visita agendada!</p>
-                            <p class="message right">Perfeito, até amanhã.</p>
-                        </section>
-                        <section class="message-form">
-                            <input type="text" placeholder="Digite sua mensagem..." required>
-                            <button type="button">Enviar</button>
-                        </section>
-                        <section class="call-screen">
-                            <section class="call-card">
-                                <p class="call-status">Chamando...</p>
-                                <div class="call-avatar"><img src="imagens/camila.png" alt="Carla"></div>
-                                <h3>Carla</h3>
-                                <div class="call-actions">
-                                    <label for="call-carla" class="button secondary">Desligar</label>
-                                    <a href="teste1.html" class="button">Home</a>
-                                </div>
-                            </section>
-                        </section>
-                    </article>
-                    <article class="conversation conversation-ana">
-                        <input type="checkbox" id="call-ana" class="call-checkbox">
-                        <header class="chat-header">
-                            <label for="conv-none" class="back-button">&larr; Voltar</label>
-                            <span class="chat-avatar"><img src="imagens/morador.png" alt="Ana"></span>
-                            <h2>Ana</h2>
-                            <label for="call-ana" class="call-icon" title="Ligar">📞</label>
-                        </header>
-                        <section class="messages">
-                            <p class="message left">Olá! Estou interessada no imóvel.</p>
-                        </section>
-                        <section class="message-form">
-                            <input type="text" placeholder="Digite sua mensagem..." required>
-                            <button type="button">Enviar</button>
-                        </section>
-                        <section class="call-screen">
-                            <section class="call-card">
-                                <p class="call-status">Chamando...</p>
-                                <div class="call-avatar"><img src="imagens/morador.png" alt="Ana"></div>
-                                <h3>Ana</h3>
-                                <div class="call-actions">
-                                    <label for="call-ana" class="button secondary">Desligar</label>
-                                    <a href="teste1.html" class="button">Home</a>
-                                </div>
-                            </section>
-                        </section>
-                    </article>
-                    <article class="conversation conversation-carlos">
-                        <input type="checkbox" id="call-carlos" class="call-checkbox">
-                        <header class="chat-header">
-                            <label for="conv-none" class="back-button">&larr; Voltar</label>
-                            <span class="chat-avatar"><img src="imagens/jose.png" alt="Carlos"></span>
-                            <h2>Carlos</h2>
-                            <label for="call-carlos" class="call-icon" title="Ligar">📞</label>
-                        </header>
-                        <section class="messages">
-                            <p class="message left">Oi! Podemos combinar uma visita?</p>
-                        </section>
-                        <section class="message-form">
-                            <input type="text" placeholder="Digite sua mensagem..." required>
-                            <button type="button">Enviar</button>
-                        </section>
-                        <section class="call-screen">
-                            <section class="call-card">
-                                <p class="call-status">Chamando...</p>
-                                <div class="call-avatar"><img src="imagens/jose.png" alt="Carlos"></div>
-                                <h3>Carlos</h3>
-                                <div class="call-actions">
-                                    <label for="call-carlos" class="button secondary">Desligar</label>
-                                    <a href="teste1.html" class="button">Home</a>
-                                </div>
-                            </section>
-                        </section>
-                    </article>
-                    <article class="conversation conversation-pedro">
-                        <input type="checkbox" id="call-pedro" class="call-checkbox">
-                        <header class="chat-header">
-                            <label for="conv-none" class="back-button">&larr; Voltar</label>
-                            <span class="chat-avatar"><img src="imagens/roger.png" alt="Pedro"></span>
-                            <h2>Pedro</h2>
-                            <label for="call-pedro" class="call-icon" title="Ligar">📞</label>
-                        </header>
-                        <section class="messages">
-                            <p class="message left">Posso te ajudar com as fotos do imóvel.</p>
-                        </section>
-                        <section class="message-form">
-                            <input type="text" placeholder="Digite sua mensagem..." required>
-                            <button type="button">Enviar</button>
-                        </section>
-                        <section class="call-screen">
-                            <section class="call-card">
-                                <p class="call-status">Chamando...</p>
-                                <div class="call-avatar"><img src="imagens/roger.png" alt="Pedro"></div>
-                                <h3>Pedro</h3>
-                                <div class="call-actions">
-                                    <label for="call-pedro" class="button secondary">Desligar</label>
-                                    <a href="teste1.html" class="button">Home</a>
-                                </div>
-                            </section>
-                        </section>
-                    </article>
-                </section>
-            </section>
-        </section>
-    </section>
+                <article class="chat-content">
+                    <header class="chat-header">
+                        <h2>Conversa com Ana</h2>
+                    </header>
+                    
+                    <ul class="messages">
+                        <li class="message left">Olá! Estou interessada no imóvel.</li>
+                    </ul>
+                    
+                    <form action="#" method="post" class="message-form">
+                        <label for="msg-input" class="visually-hidden">Mensagem:</label>
+                        <input type="text" id="msg-input" name="msg" required>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </article>
+            </fieldset>
+        </fieldset>
+    </aside>
 </body>
 </html>

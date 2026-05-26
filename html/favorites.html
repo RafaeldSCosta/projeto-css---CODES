@@ -1,15 +1,24 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ImóveisCo - Favoritos</title>
+
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
+
     <header>
-        <h1> Favoritos</h1>
-        <a href="#login" class="button secondary">Entrar</a>
+        <h1>Favoritos</h1>
+
+        <a href="#login" class="button secondary">
+            Entrar
+        </a>
     </header>
 
     <nav class="top-nav">
@@ -20,218 +29,276 @@
     </nav>
 
     <main>
+
         <section class="tabs">
-            <input type="radio" id="tab-moradias" name="favorite-tab" checked hidden>
-            <input type="radio" id="tab-matches" name="favorite-tab" hidden>
+
+            <h2 class="sr-only">
+                Área de favoritos
+            </h2>
+
+            <input type="radio"
+                   id="tab-moradias"
+                   name="favorite-tab"
+                   checked
+                   hidden>
+
+            <input type="radio"
+                   id="tab-matches"
+                   name="favorite-tab"
+                   hidden>
+
             <section class="tab-buttons">
-                <label for="tab-moradias" class="tab-label">Moradias Favoritas</label>
-                <label for="tab-matches" class="tab-label">Matches</label>
+
+                <h2 class="sr-only">
+                    Seleção de abas
+                </h2>
+
+                <label for="tab-moradias"
+                       class="tab-label">
+                    Moradias Favoritas
+                </label>
+
+                <label for="tab-matches"
+                       class="tab-label">
+                    Matches
+                </label>
+
             </section>
+
             <section class="tab-content tab-moradias">
-                <div class="section-title">
-                    <h2>Imóveis Favoritos</h2>
-                    <p>Estes são os imóveis que você salvou para ver depois.</p>
-                </div>
+
+                <h2 class="sr-only">
+                    Conteúdo de imóveis favoritos
+                </h2>
+
+                <section class="section-title">
+
+                    <h2>
+                        Imóveis Favoritos
+                    </h2>
+
+                    <p>
+                        Estes são os imóveis que você salvou para ver depois.
+                    </p>
+
+                </section>
+
                 <article>
+
+                    <input type="checkbox"
+                           id="fav-1"
+                           class="favorite-checkbox">
+
+                    <label for="fav-1"
+                           class="star">
+
+                        <span class="sr-only">
+                            Favoritar
+                        </span>
+
+                    </label>
+
                     <figure>
-                        <img src="imagens/quarto1.jpg" alt="Apartamento Favorito">
+                        <img src="imagens/quarto1.jpg"
+                             alt="Apartamento Favorito">
                     </figure>
-                    <h2>Apartamento Favorito</h2>
-                    <p>Localizado em Diadema, 50m² com quarto mobiliado e ótima iluminação.</p>
-                    <a href="teste1.html#property-1" class="button">Ver Detalhes</a>
+
+                    <h2>
+                        Apartamento Favorito
+                    </h2>
+
+                    <p>
+                        Localizado em Diadema, 50m² com quarto mobiliado e ótima iluminação.
+                    </p>
+
+                    <a href="teste1.html#property-1"
+                       class="button">
+                        Ver Detalhes
+                    </a>
+
                 </article>
+
                 <article>
+
+                    <input type="checkbox"
+                           id="fav-2"
+                           class="favorite-checkbox">
+
+                    <label for="fav-2"
+                           class="star">
+
+                        <span class="sr-only">
+                            Favoritar
+                        </span>
+
+                    </label>
+
                     <figure>
-                        <img src="imagens/quarto2.jpg" alt="Estúdio Favorito">
+                        <img src="imagens/quarto2.jpg"
+                             alt="Estúdio Favorito">
                     </figure>
-                    <h2>Estúdio Favorito</h2>
-                    <p>Estúdio moderno em Vila Olímpia com varanda e suíte privativa.</p>
-                    <a href="teste1.html#property-2" class="button">Ver Detalhes</a>
+
+                    <h2>
+                        Estúdio Favorito
+                    </h2>
+
+                    <p>
+                        Estúdio moderno em Vila Olímpia com varanda e suíte privativa.
+                    </p>
+
+                    <a href="teste1.html#property-2"
+                       class="button">
+                        Ver Detalhes
+                    </a>
+
                 </article>
+
             </section>
+
             <section class="tab-content tab-matches">
-                <div class="section-title">
-                    <h2>Matches</h2>
-                    <p>Veja os moradores com maior compatibilidade para o seu perfil.</p>
-                </div>
-                <section id="match-list" class="matches-grid"></section>
-                <!-- Como não há JS para popular os matches, este será o estado padrão exibido -->
-                <p id="no-matches" class="empty-state">Nenhum match ainda. Volte à home e clique em “Match” em algum morador.</p>
+
+                <h2 class="sr-only">
+                    Conteúdo de matches
+                </h2>
+
+                <section class="section-title">
+
+                    <h2>
+                        Matches
+                    </h2>
+
+                    <p>
+                        Veja os moradores com maior compatibilidade para o seu perfil.
+                    </p>
+
+                </section>
+
+                <section id="match-list"
+                         class="matches-grid">
+
+                    <h3>
+                        Lista de Matches
+                    </h3>
+
+                </section>
+
+                <p id="no-matches"
+                   class="empty-state">
+
+                    Nenhum match ainda.
+                    Volte à home e clique em “Match”
+                    em algum morador.
+
+                </p>
+
             </section>
+
         </section>
+
     </main>
 
-    <nav id="bottom-nav" aria-label="Navegação inferior">
+    <nav id="bottom-nav"
+         aria-label="Navegação inferior">
+
         <ul>
-            <li><a href="teste1.html"><img src="imagens/home.png" alt="Home"></a></li>
-            <li><a href="favorites.html"><img src="imagens/like.png" alt="Favoritos"></a></li>
-            <li><a href="#chat-modal"><img src="imagens/messagens.png" alt="Chat"></a></li>
-            <li><a href="profile.html"><img src="imagens/user.png" alt="Perfil"></a></li>
+
+            <li>
+
+                <a href="teste1.html">
+
+                    <img src="imagens/home.png"
+                         alt="Home">
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="favorites.html">
+
+                    <img src="imagens/like.png"
+                         alt="Favoritos">
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#chat-modal">
+
+                    <img src="imagens/messagens.png"
+                         alt="Chat">
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="profile.html">
+
+                    <img src="imagens/user.png"
+                         alt="Perfil">
+
+                </a>
+
+            </li>
+
         </ul>
+
     </nav>
 
-    <section id="chat-modal" class="modal chat-modal">
-        <section class="modal-content chat-modal-content">
-            <a href="#" class="close">&times;</a>
-            <section class="chat-layout">
-                <input type="radio" id="conv-none" name="conversation" checked hidden>
-                <input type="radio" id="conv-maria" name="conversation" hidden>
-                <input type="radio" id="conv-joao" name="conversation" hidden>
-                <input type="radio" id="conv-carla" name="conversation" hidden>
+    <section id="login"
+             class="modal">
 
-                <section class="chat-list">
-                    <label for="conv-maria" class="chat-item">
-                        <span class="chat-avatar">M</span>
-                        <section>
-                            <span class="chat-name">Maria</span>
-                            <p>Oi, tudo bem?</p>
-                        </section>
-                    </label>
-                    <label for="conv-joao" class="chat-item">
-                        <span class="chat-avatar">J</span>
-                        <section>
-                            <span class="chat-name">João</span>
-                            <p>Sobre o quarto...</p>
-                        </section>
-                    </label>
-                    <label for="conv-carla" class="chat-item">
-                        <span class="chat-avatar">C</span>
-                        <section>
-                            <span class="chat-name">Carla</span>
-                            <p>Visita agendada!</p>
-                        </section>
-                    </label>
-                </section>
+        <h2 class="sr-only">
+            Login
+        </h2>
 
-                <section class="chat-content">
-                    <article class="conversation conversation-maria">
-                        <input type="checkbox" id="call-maria" class="call-checkbox">
-                        <header class="chat-header">
-                            <label for="conv-none" class="back-button">&larr; Voltar</label>
-                            <span class="chat-avatar">M</span>
-                            <h2>Maria</h2>
-                            <label for="call-maria" class="call-icon" title="Ligar">📞</label>
-                        </header>
-                        <section class="messages">
-                            <p class="message left">Oi, tudo bem?</p>
-                            <p class="message right">Oi Maria! Sim, e você?</p>
-                            <p class="message left">Bem também, obrigado.</p>
-                        </section>
-                        <section class="message-form">
-                            <input type="text" placeholder="Digite sua mensagem..." required>
-                            <button type="button">Enviar</button>
-                        </section>
-                        <section class="call-screen">
-                            <section class="call-card">
-                                <p class="call-status">Chamando...</p>
-                                <div class="call-avatar">M</div>
-                                <h3>Maria</h3>
-                                <div class="call-actions">
-                                    <label for="call-maria" class="button secondary">Desligar</label>
-                                    <a href="teste1.html" class="button">Home</a>
-                                </div>
-                            </section>
-                        </section>
-                    </article>
-                    <article class="conversation conversation-joao">
-                        <input type="checkbox" id="call-joao" class="call-checkbox">
-                        <header class="chat-header">
-                            <label for="conv-none" class="back-button">&larr; Voltar</label>
-                            <span class="chat-avatar">J</span>
-                            <h2>João</h2>
-                            <label for="call-joao" class="call-icon" title="Ligar">📞</label>
-                        </header>
-                        <section class="messages">
-                            <p class="message left">Sobre o quarto...</p>
-                            <p class="message right">Qual quarto?</p>
-                            <p class="message left">O Quarto 1, está disponível?</p>
-                        </section>
-                        <section class="message-form">
-                            <input type="text" placeholder="Digite sua mensagem..." required>
-                            <button type="button">Enviar</button>
-                        </section>
-                        <section class="call-screen">
-                            <section class="call-card">
-                                <p class="call-status">Chamando...</p>
-                                <div class="call-avatar">J</div>
-                                <h3>João</h3>
-                                <div class="call-actions">
-                                    <label for="call-joao" class="button secondary">Desligar</label>
-                                    <a href="teste1.html" class="button">Home</a>
-                                </div>
-                            </section>
-                        </section>
-                    </article>
-                    <article class="conversation conversation-carla">
-                        <input type="checkbox" id="call-carla" class="call-checkbox">
-                        <header class="chat-header">
-                            <label for="conv-none" class="back-button">&larr; Voltar</label>
-                            <span class="chat-avatar">C</span>
-                            <h2>Carla</h2>
-                            <label for="call-carla" class="call-icon" title="Ligar">📞</label>
-                        </header>
-                        <section class="messages">
-                            <p class="message left">Visita agendada!</p>
-                            <p class="message right">Perfeito, até amanhã.</p>
-                        </section>
-                        <section class="message-form">
-                            <input type="text" placeholder="Digite sua mensagem..." required>
-                            <button type="button">Enviar</button>
-                        </section>
-                        <section class="call-screen">
-                            <section class="call-card">
-                                <p class="call-status">Chamando...</p>
-                                <div class="call-avatar">C</div>
-                                <h3>Carla</h3>
-                                <div class="call-actions">
-                                    <label for="call-carla" class="button secondary">Desligar</label>
-                                    <a href="teste1.html" class="button">Home</a>
-                                </div>
-                            </section>
-                        </section>
-                    </article>
-                </section>
-            </section>
-        </section>
-    </section>
-
-    <section id="login" class="modal">
         <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Login</h2>
+
+            <a href="#"
+               class="close">
+                &times;
+            </a>
+
+            <h2>
+                Login
+            </h2>
+
             <form>
-                <label>Email
-                    <input type="email" required>
+
+                <label for="login-email">
+                    Email
                 </label>
-                <label>Senha
-                    <input type="password" required>
+
+                <input type="email"
+                       id="login-email"
+                       required>
+
+                <label for="login-password">
+                    Senha
                 </label>
-                <button type="submit" class="button">Entrar</button>
+
+                <input type="password"
+                       id="login-password"
+                       required>
+
+                <button type="submit"
+                        class="button">
+
+                    Entrar
+
+                </button>
+
             </form>
-            <p><a href="#register" class="button secondary">Cadastrar</a></p>
+
         </section>
+
     </section>
 
-    <section id="register" class="modal">
-        <section class="modal-content">
-            <a href="#" class="close">&times;</a>
-            <h2>Cadastro</h2>
-            <form>
-                <label>Nome
-                    <input type="text" required>
-                </label>
-                <label>Email
-                    <input type="email" required>
-                </label>
-                <label>Senha
-                    <input type="password" required>
-                </label>
-                <label>Confirmar Senha
-                    <input type="password" required>
-                </label>
-                <button type="submit" class="button">Cadastrar</button>
-            </form>
-        </section>
-    </section>
 </body>
+
 </html>
