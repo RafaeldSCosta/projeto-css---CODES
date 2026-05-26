@@ -38,6 +38,14 @@ header a {
     border-bottom: 1px solid #ddd;
 }
 
+.top-nav ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .top-nav a {
     color: #003366;
     text-decoration: none;
@@ -244,6 +252,7 @@ textarea {
     background: white;
     border-top: 1px solid #ddd;
     padding: 10px 0;
+    z-index: 100;
 }
 
 #bottom-nav ul {
@@ -265,10 +274,11 @@ textarea {
     height: 24px;
 }
 
-section#listagem {
+#listagem {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 24px;
+    list-style: none;
 }
 
 article {
@@ -364,6 +374,7 @@ article p {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    z-index: 1000;
 }
 
 .modal:target {
@@ -626,23 +637,54 @@ footer p {
     inset: 0;
     background: rgba(0,0,0,0.55);
     display: none;
-    align-items: stretch;
-    justify-content: stretch;
-    padding: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
 .chat-modal:target {
     display: flex;
 }
 
+fieldset.chat-modal-content,
+fieldset.chat-layout {
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
 .chat-modal-content {
     background: white;
-    width: 100%;
-    height: 100%;
+    width: min(900px, 100%);
+    height: min(600px, 85vh);
+    border-radius: 16px;
     overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
+}
+
+.chat-layout {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+main:has(> .chat-layout) {
+    max-width: 1000px;
+    height: calc(100vh - 200px);
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+main > .chat-layout {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 3px 16px rgba(0,0,0,0.08);
+    overflow: hidden;
+    border: 1px solid #ddd;
 }
 
 .chat-modal-content .close {
@@ -655,26 +697,19 @@ footer p {
     z-index: 10;
 }
 
-.chat-layout {
-    display: flex;
-    height: 100%;
-    width: 100%;
-}
-
 .chat-list {
-    width: 100%;
+    width: 30%;
     background: #f9f9f9;
     padding: 18px;
     overflow-y: auto;
-    flex: 1;
+    border-right: 1px solid #ddd;
 }
 
 .chat-content {
-    display: none;
+    display: flex;
     flex: 1;
     padding: 0;
     overflow: hidden;
-    display: flex;
     flex-direction: column;
 }
 
@@ -695,24 +730,6 @@ footer p {
     display: flex;
     flex-direction: column;
     height: 100%;
-}
-
-#conv-ana:checked ~ .chat-list,
-#conv-carlos:checked ~ .chat-list,
-#conv-pedro:checked ~ .chat-list,
-#conv-maria:checked ~ .chat-list,
-#conv-joao:checked ~ .chat-list,
-#conv-carla:checked ~ .chat-list {
-    display: none;
-}
-
-#conv-ana:checked ~ .chat-content,
-#conv-carlos:checked ~ .chat-content,
-#conv-pedro:checked ~ .chat-content,
-#conv-maria:checked ~ .chat-content,
-#conv-joao:checked ~ .chat-content,
-#conv-carla:checked ~ .chat-content {
-    display: flex;
 }
 
 .chat-avatar {
@@ -979,7 +996,6 @@ footer p {
     }
 }
 
-/* Estilos para o Modal de Filtros */
 .toolbar {
     display: flex;
     gap: 12px;
@@ -1167,7 +1183,8 @@ footer p {
     }
 }
 
-.sr-only {
+.sr-only,
+.visually-hidden {
     position: absolute;
     width: 1px;
     height: 1px;

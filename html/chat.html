@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ImóveisCo - Chat</title>
-
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -13,10 +12,7 @@
 
     <header>
         <h1>Chat</h1>
-
-        <a href="#login" class="button secondary">
-            Entrar
-        </a>
+        <a href="#login" class="button secondary">Entrar</a>
     </header>
 
     <nav class="top-nav">
@@ -27,344 +23,220 @@
     </nav>
 
     <main>
-
         <section class="chat-layout">
+            <h2 class="sr-only">Conversas</h2>
 
-            <h2 class="sr-only">
-                Conversas
-            </h2>
+            <input type="radio" id="conv-none" name="conversation" hidden>
+            <input type="radio" id="conv-maria" name="conversation" checked hidden>
+            <input type="radio" id="conv-joao" name="conversation" hidden>
+            <input type="radio" id="conv-carla" name="conversation" hidden>
 
-            <input type="radio"
-                   id="conv-none"
-                   name="conversation"
-                   hidden>
-
-            <input type="radio"
-                   id="conv-maria"
-                   name="conversation"
-                   checked
-                   hidden>
-
-            <input type="radio"
-                   id="conv-joao"
-                   name="conversation"
-                   hidden>
-
-            <input type="radio"
-                   id="conv-carla"
-                   name="conversation"
-                   hidden>
-
-            <nav class="chat-list"
-                 aria-label="Lista de conversas">
-
-                <label for="conv-maria"
-                       class="chat-item">
-
+            <nav class="chat-list" aria-label="Lista de conversas">
+                <label for="conv-maria" class="chat-item">
                     <span class="chat-avatar">
-                        <img src="imagens/maria.png"
-                             alt="Maria">
+                        <img src="imagens/maria.png" alt="Maria">
                     </span>
-
                     <span class="chat-meta">
-                        <span class="chat-name">
-                            Maria
-                        </span>
-
-                        <span class="chat-preview">
-                            Oi, tudo bem?
-                        </span>
+                        <span class="chat-name">Maria</span>
+                        <span class="chat-preview">Oi, tudo bem?</span>
                     </span>
-
                 </label>
 
-                <label for="conv-joao"
-                       class="chat-item">
-
+                <label for="conv-joao" class="chat-item">
                     <span class="chat-avatar">
-                        <img src="imagens/user.png"
-                             alt="João">
+                        <img src="imagens/user.png" alt="João">
                     </span>
-
                     <span class="chat-meta">
-                        <span class="chat-name">
-                            João
-                        </span>
-
-                        <span class="chat-preview">
-                            Sobre o quarto...
-                        </span>
+                        <span class="chat-name">João</span>
+                        <span class="chat-preview">Sobre o quarto...</span>
                     </span>
-
                 </label>
 
-                <label for="conv-carla"
-                       class="chat-item">
-
+                <label for="conv-carla" class="chat-item">
                     <span class="chat-avatar">
-                        <img src="imagens/camila.png"
-                             alt="Carla">
+                        <img src="imagens/camila.png" alt="Carla">
                     </span>
-
                     <span class="chat-meta">
-                        <span class="chat-name">
-                            Carla
-                        </span>
-
-                        <span class="chat-preview">
-                            Visita agendada!
-                        </span>
+                        <span class="chat-name">Carla</span>
+                        <span class="chat-preview">Visita agendada!</span>
                     </span>
-
                 </label>
-
             </nav>
 
             <section class="chat-content">
+                <h2 class="sr-only">Área de mensagens</h2>
 
-                <h2 class="sr-only">
-                    Área de mensagens
-                </h2>
+                <article class="conversation conversation-maria">
+                    <header class="chat-header">
+                        <h2>Maria</h2>
+                        <label for="call-maria" class="call-icon">📞</label>
+                    </header>
 
-                <article class="conversation conversation-maria"
-                         aria-labelledby="titulo-conversa-maria">
+                    <input type="checkbox" id="call-maria" class="call-checkbox">
+                    <div class="call-screen">
+                        <article class="call-card">
+                            <div class="call-avatar">
+                                <img src="imagens/maria.png" alt="Maria">
+                            </div>
+                            <h3>Maria</h3>
+                            <p class="call-status">Chamando...</p>
+                            <div class="call-actions">
+                                <label for="call-maria" class="button" style="background: #dc3545;">Desligar</label>
+                            </div>
+                        </article>
+                    </div>
 
-                    <h3 id="titulo-conversa-maria">
-                        Conversa com Maria
-                    </h3>
+                    <div class="messages">
+                        <p class="message left">Oi, tudo bem?</p>
+                        <p class="message right">Oi Maria! Sim, e você?</p>
+                        <p class="message left">Bem também, obrigado.</p>
+                    </div>
 
-                    <p class="message left">
-                        Oi, tudo bem?
-                    </p>
-
-                    <p class="message right">
-                        Oi Maria! Sim, e você?
-                    </p>
-
-                    <p class="message left">
-                        Bem também, obrigado.
-                    </p>
-
+                    <form action="#" method="post" class="message-form">
+                        <input type="text" name="msg" placeholder="Digite sua mensagem..." required>
+                        <button type="submit">Enviar</button>
+                    </form>
                 </article>
 
-                <article class="conversation conversation-joao"
-                         aria-labelledby="titulo-conversa-joao">
+                <article class="conversation conversation-joao">
+                    <header class="chat-header">
+                        <h2>João</h2>
+                        <label for="call-joao" class="call-icon">📞</label>
+                    </header>
 
-                    <h3 id="titulo-conversa-joao">
-                        Conversa com João
-                    </h3>
+                    <input type="checkbox" id="call-joao" class="call-checkbox">
+                    <div class="call-screen">
+                        <article class="call-card">
+                            <div class="call-avatar">
+                                <img src="imagens/user.png" alt="João">
+                            </div>
+                            <h3>João</h3>
+                            <p class="call-status">Chamando...</p>
+                            <div class="call-actions">
+                                <label for="call-joao" class="button" style="background: #dc3545;">Desligar</label>
+                            </div>
+                        </article>
+                    </div>
 
-                    <p class="message left">
-                        Sobre o quarto...
-                    </p>
+                    <div class="messages">
+                        <p class="message left">Sobre o quarto...</p>
+                        <p class="message right">Qual quarto?</p>
+                        <p class="message left">O Quarto 1, está disponível?</p>
+                    </div>
 
-                    <p class="message right">
-                        Qual quarto?
-                    </p>
-
-                    <p class="message left">
-                        O Quarto 1, está disponível?
-                    </p>
-
+                    <form action="#" method="post" class="message-form">
+                        <input type="text" name="msg" placeholder="Digite sua mensagem..." required>
+                        <button type="submit">Enviar</button>
+                    </form>
                 </article>
 
-                <article class="conversation conversation-carla"
-                         aria-labelledby="titulo-conversa-carla">
+                <article class="conversation conversation-carla">
+                    <header class="chat-header">
+                        <h2>Carla</h2>
+                        <label for="call-carla" class="call-icon">📞</label>
+                    </header>
 
-                    <h3 id="titulo-conversa-carla">
-                        Conversa com Carla
-                    </h3>
+                    <input type="checkbox" id="call-carla" class="call-checkbox">
+                    <div class="call-screen">
+                        <article class="call-card">
+                            <div class="call-avatar">
+                                <img src="imagens/camila.png" alt="Carla">
+                            </div>
+                            <h3>Carla</h3>
+                            <p class="call-status">Chamando...</p>
+                            <div class="call-actions">
+                                <label for="call-carla" class="button" style="background: #dc3545;">Desligar</label>
+                            </div>
+                        </article>
+                    </div>
 
-                    <p class="message left">
-                        Visita agendada!
-                    </p>
+                    <div class="messages">
+                        <p class="message left">Visita agendada!</p>
+                        <p class="message right">Perfeito, até amanhã.</p>
+                    </div>
 
-                    <p class="message right">
-                        Perfeito, até amanhã.
-                    </p>
-
+                    <form action="#" method="post" class="message-form">
+                        <input type="text" name="msg" placeholder="Digite sua mensagem..." required>
+                        <button type="submit">Enviar</button>
+                    </form>
                 </article>
-
-                <form class="message-form"
-                      action="#"
-                      method="post">
-
-                    <label for="chat-message"
-                           class="sr-only">
-                        Digite sua mensagem
-                    </label>
-
-                    <input type="text"
-                           id="chat-message"
-                           name="message"
-                           placeholder="Digite sua mensagem..."
-                           required>
-
-                    <button type="submit"
-                            class="button">
-                        Enviar
-                    </button>
-
-                </form>
 
             </section>
-
         </section>
-
     </main>
 
-    <nav id="bottom-nav"
-         aria-label="Navegação inferior">
-
+    <nav id="bottom-nav" aria-label="Navegação inferior">
         <ul>
-
             <li>
                 <a href="teste1.html">
-                    <img src="imagens/home.png"
-                         alt="Home">
+                    <img src="imagens/home.png" alt="Home">
                 </a>
             </li>
-
             <li>
                 <a href="favorites.html">
-                    <img src="imagens/like.png"
-                         alt="Favoritos">
+                    <img src="imagens/like.png" alt="Favoritos">
                 </a>
             </li>
-
             <li>
                 <a href="chat.html">
-                    <img src="imagens/messagens.png"
-                         alt="Chat">
+                    <img src="imagens/messagens.png" alt="Chat">
                 </a>
             </li>
-
             <li>
                 <a href="profile.html">
-                    <img src="imagens/user.png"
-                         alt="Perfil">
+                    <img src="imagens/user.png" alt="Perfil">
                 </a>
             </li>
-
         </ul>
-
     </nav>
 
-    <section id="login"
-             class="modal">
-
-        <h2 class="sr-only">
-            Login
-        </h2>
-
+    <section id="login" class="modal">
+        <h2 class="sr-only">Login</h2>
         <section class="modal-content">
-
-            <a href="#"
-               class="close">
-                &times;
-            </a>
-
-            <h2>
-                Login
-            </h2>
-
+            <a href="#" class="close">&times;</a>
+            <h2>Login</h2>
             <form>
-
-                <label for="login-email">
+                <label>
                     Email
+                    <input type="email" required>
                 </label>
-
-                <input type="email"
-                       id="login-email"
-                       required>
-
-                <label for="login-password">
+                <label>
                     Senha
+                    <input type="password" required>
                 </label>
-
-                <input type="password"
-                       id="login-password"
-                       required>
-
-                <button type="submit"
-                        class="button">
-                    Entrar
-                </button>
-
+                <button type="submit" class="button">Entrar</button>
             </form>
-
             <p>
-                <a href="#register"
-                   class="button secondary">
-                    Cadastrar
-                </a>
+                <a href="#register" class="button secondary">Cadastrar</a>
             </p>
-
         </section>
-
     </section>
 
-    <section id="register"
-             class="modal">
-
-        <h2 class="sr-only">
-            Cadastro
-        </h2>
-
+    <section id="register" class="modal">
+        <h2 class="sr-only">Cadastro</h2>
         <section class="modal-content">
-
-            <a href="#"
-               class="close">
-                &times;
-            </a>
-
-            <h2>
-                Cadastro
-            </h2>
-
+            <a href="#" class="close">&times;</a>
+            <h2>Cadastro</h2>
             <form>
-
-                <label for="register-name">
+                <label>
                     Nome
+                    <input type="text" required>
                 </label>
-
-                <input type="text"
-                       id="register-name"
-                       required>
-
-                <label for="register-email">
+                <label>
                     Email
+                    <input type="email" required>
                 </label>
-
-                <input type="email"
-                       id="register-email"
-                       required>
-
-                <label for="register-password">
+                <label>
                     Senha
+                    <input type="password" required>
                 </label>
-
-                <input type="password"
-                       id="register-password"
-                       required>
-
-                <label for="register-confirm-password">
+                <label>
                     Confirmar Senha
+                    <input type="password" required>
                 </label>
-
-                <input type="password"
-                       id="register-confirm-password"
-                       required>
-
-                <button type="submit"
-                        class="button">
-                    Cadastrar
-                </button>
-
+                <button type="submit" class="button">Cadastrar</button>
             </form>
-
         </section>
-
     </section>
 
 </body>

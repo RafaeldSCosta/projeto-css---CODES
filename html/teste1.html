@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ImóveisCo - Home</title>
-    <link class="styles" rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
@@ -33,8 +33,8 @@
                 <a href="#" class="close" aria-label="Fechar modal">&times;</a>
                 <h2>Filtrar Imóveis</h2>
                 
-                <fieldset class="filters-content">
-                    <legend class="visually-hidden">Opções de Filtro</legend>
+                <form class="filters-content" action="#">
+                    <h2 class="visually-hidden">Opções de Filtro</h2>
                     <fieldset>
                         <legend>Preço</legend>
                         <label for="maxPrice">Preço máximo: R$ 2.000</label>
@@ -61,7 +61,7 @@
                     
                     <button type="reset" class="button secondary">Limpar</button>
                     <button type="submit" class="button">Aplicar</button>
-                </fieldset>
+                </form>
             </section>
         </aside>
 
@@ -77,7 +77,7 @@
                         <img src="imagens/apartamento.jpg" alt="Fachada do Imóvel">
                     </figure>
                     <h2>Apartamento</h2>
-                    <p><small>1 vaga disponível</small></p>
+                    <p class="vacancies"><small>1 vaga disponível</small></p>
                     <h3>R$ 1.200/mês</h3>
                     <aside>
                         <ul>
@@ -102,7 +102,7 @@
                         <img src="imagens/quarto2.jpg" alt="Interior do Studio">
                     </figure>
                     <h2>Studio</h2>
-                    <p><small>2 vagas disponíveis</small></p>
+                    <p class="vacancies"><small>2 vagas disponíveis</small></p>
                     <h3>R$ 1.500/mês</h3>
                     <aside>
                         <ul>
@@ -112,6 +112,106 @@
                         </ul>
                     </aside>
                     <p>Studio moderno com varanda, suíte privativa e ar-condicionado.</p>
+                    <a href="#property-2" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+
+            <li>
+                <article class="property-card" data-price="1800" data-location="vila-mariana">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-3" name="favorite-3" class="favorite-checkbox" aria-label="Favoritar Ap na Vila Mariana">
+                        <label for="fav-3" class="star"></label>
+                    </fieldset>
+                    <figure>
+                        <img src="imagens/apartamento.jpg" alt="Apartamento Vila Mariana">
+                    </figure>
+                    <h2>Kitnet Integrada</h2>
+                    <p class="vacancies"><small>Sem vagas</small></p>
+                    <h3>R$ 1.800/mês</h3>
+                    <aside>
+                        <ul>
+                            <li><small>Vila Mariana</small></li>
+                            <li><small>40m²</small></li>
+                            <li><small>São Paulo</small></li>
+                        </ul>
+                    </aside>
+                    <p>Próximo ao metrô, ideal para estudantes. Excelente isolamento acústico.</p>
+                    <a href="#property-1" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+
+            <li>
+                <article class="property-card" data-price="2200" data-location="pinheiros">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-4" name="favorite-4" class="favorite-checkbox" aria-label="Favoritar Ap em Pinheiros">
+                        <label for="fav-4" class="star"></label>
+                    </fieldset>
+                    <figure>
+                        <img src="imagens/quarto2.jpg" alt="Apartamento Pinheiros">
+                    </figure>
+                    <h2>Apartamento Duplex</h2>
+                    <p class="vacancies"><small>1 vaga disponível</small></p>
+                    <h3>R$ 2.200/mês</h3>
+                    <aside>
+                        <ul>
+                            <li><small>Pinheiros</small></li>
+                            <li><small>75m²</small></li>
+                            <li><small>São Paulo</small></li>
+                        </ul>
+                    </aside>
+                    <p>Espaço amplo com varanda gourmet, armários embutidos e ótima iluminação.</p>
+                    <a href="#property-2" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+
+            <li>
+                <article class="property-card" data-price="1400" data-location="bela-vista">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-5" name="favorite-5" class="favorite-checkbox" aria-label="Favoritar Ap na Bela Vista">
+                        <label for="fav-5" class="star"></label>
+                    </fieldset>
+                    <figure>
+                        <img src="imagens/apartamento.jpg" alt="Apartamento Bela Vista">
+                    </figure>
+                    <h2>Quarto Individual</h2>
+                    <p class="vacancies"><small>1 vaga disponível</small></p>
+                    <h3>R$ 1.400/mês</h3>
+                    <aside>
+                        <ul>
+                            <li><small>Bela Vista</small></li>
+                            <li><small>45m²</small></li>
+                            <li><small>São Paulo</small></li>
+                        </ul>
+                    </aside>
+                    <p>Ambiente limpo, silencioso, mobiliado e com contas inclusas no aluguel.</p>
+                    <a href="#property-1" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+
+            <li>
+                <article class="property-card" data-price="1650" data-location="santana">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-6" name="favorite-6" class="favorite-checkbox" aria-label="Favoritar Ap em Santana">
+                        <label for="fav-6" class="star"></label>
+                    </fieldset>
+                    <figure>
+                        <img src="imagens/quarto2.jpg" alt="Apartamento Santana">
+                    </figure>
+                    <h2>Studio Mobiliado</h2>
+                    <p class="vacancies"><small>2 vagas disponíveis</small></p>
+                    <h3>R$ 1.650/mês</h3>
+                    <aside>
+                        <ul>
+                            <li><small>Santana</small></li>
+                            <li><small>55m²</small></li>
+                            <li><small>São Paulo</small></li>
+                        </ul>
+                    </aside>
+                    <p>Condomínio moderno com lavanderia coletiva, academia e portaria 24h.</p>
                     <a href="#property-2" class="button">Ver Detalhes</a>
                 </article>
             </li>
@@ -140,20 +240,53 @@
     <aside id="property-1" class="modal">
         <article class="modal-content">
             <a href="#" class="close" aria-label="Fechar detalhes">&times;</a>
-            <h2>Apartamento - Diadema</h2>
+            <h2>Apartamento - Detalhes</h2>
             <figure>
-                <img src="imagens/apartamento.jpg" alt="Apartamento em Diadema">
+                <img src="imagens/apartamento.jpg" alt="Detalhes do Imóvel">
             </figure>
-            <p><strong>R$ 1.200/mês</strong></p>
+            <p><strong>Preço sob consulta</strong></p>
             <h3>Características</h3>
             <ul>
                 <li>Quartos: 1</li>
-                <li>Área: 50m²</li>
+                <li>Área: Disponível no card</li>
             </ul>
             <h3>Moradores</h3>
+            <div class="residents-grid">
+                <a href="#resident-ana" class="resident-card">
+                    <span class="resident-avatar">
+                        <img src="imagens/user.png" alt="Foto de Ana">
+                    </span>
+                    <span class="resident-name">Ana</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button">Agendar Visita</a>
+        </article>
+    </aside>
+
+    <aside id="property-2" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close" aria-label="Fechar detalhes">&times;</a>
+            <h2>Studio - Detalhes</h2>
+            <figure>
+                <img src="imagens/quarto2.jpg" alt="Detalhes do Imóvel">
+            </figure>
+            <p><strong>Preço sob consulta</strong></p>
+            <h3>Características</h3>
             <ul>
-                <li><a href="#resident-ana"><strong>Ana</strong> - Ver Perfil</a></li>
+                <li>Quartos: 1</li>
+                <li>Área: Disponível no card</li>
             </ul>
+            <h3>Moradores</h3>
+            <div class="residents-grid">
+                <a href="#resident-ana" class="resident-card">
+                    <span class="resident-avatar">
+                        <img src="imagens/user.png" alt="Foto de Ana">
+                    </span>
+                    <span class="resident-name">Ana</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
             <a href="#" class="button">Agendar Visita</a>
         </article>
     </aside>
@@ -179,7 +312,7 @@
         <ul>
             <li><a href="teste1.html"><img src="imagens/home.png" alt="Início"></a></li>
             <li><a href="favorites.html"><img src="imagens/like.png" alt="Favoritos"></a></li>
-            <li><a href="#chat-modal"><img src="imagens/messagens.png" alt="Mensagens"></a></li>
+            <li><a href="chat.html"><img src="imagens/messagens.png" alt="Mensagens"></a></li>
             <li><a href="profile.html"><img src="imagens/user.png" alt="Perfil"></a></li>
         </ul>
     </nav>
