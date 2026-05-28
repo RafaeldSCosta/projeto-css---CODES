@@ -1,6 +1,71 @@
 // script.js - ImóveisCo
 
 // -------------------------------------------------------
+// Cards — remove bolinhas das listas de detalhes
+// -------------------------------------------------------
+
+var cardLists = document.querySelectorAll(".property-card aside ul");
+for (var cl = 0; cl < cardLists.length; cl++) {
+    cardLists[cl].style.listStyle = "none";
+    cardLists[cl].style.padding   = "0";
+    cardLists[cl].style.margin    = "0";
+}
+
+// -------------------------------------------------------
+// Busca por localização — filtra cards em tempo real
+// -------------------------------------------------------
+
+function normalizarTexto(texto) {
+    return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, ""); // remove acentos
+}
+
+var apelidos = {
+    "apt":        "apartamento",
+    "apto":       "apartamento",
+    "ap":         "apartamento",
+    "studio":     "studio",
+    "kitnet":     "kitnet",
+    "kit":        "kitnet",
+    "duplex":     "duplex",
+    "sp":         "sao paulo",
+    "sao paulo":  "sao paulo"
+};
+
+var campoBusca = document.getElementById("location-search");
+
+if (campoBusca) {
+    campoBusca.addEventListener("input", function () {
+        var termoOriginal = this.value.trim();
+        var termo = normalizarTexto(termoOriginal);
+
+        // Expande abreviações
+        if (apelidos[termo]) {
+            termo = apelidos[termo];
+        }
+
+        var cards = document.querySelectorAll(".property-card");
+
+        for (var i = 0; i < cards.length; i++) {
+            var card = cards[i];
+            var li   = card.closest("li");
+            if (!li) continue;
+
+            var textoCompleto = normalizarTexto(card.textContent || "");
+            var locData       = normalizarTexto(card.dataset.location || "");
+
+            var corresponde =
+                textoCompleto.includes(termo) ||
+                locData.includes(termo);
+
+            li.style.display = (termo === "" || corresponde) ? "" : "none";
+        }
+    });
+}
+
+// -------------------------------------------------------
 // Filtro de preço — atualiza o label e filtra os cards
 // -------------------------------------------------------
 
@@ -405,6 +470,173 @@ function criarNovaConversa(nome) {
         input.value = "";
         caixaMensagens.scrollTop = caixaMensagens.scrollHeight;
     });
+}
+
+// -------------------------------------------------------
+// Navegação — oculta o menu superior; apenas o rodapé navega
+// -------------------------------------------------------
+
+var topNav = document.querySelector(".top-nav");
+if (topNav) {
+    topNav.style.display = "none";
+}
+
+// -------------------------------------------------------
+// Toolbar — alinha barra de pesquisa e botão Filtros
+// -------------------------------------------------------
+
+var toolbar = document.querySelector(".toolbar");
+if (toolbar) {
+    toolbar.style.display      = "flex";
+    toolbar.style.alignItems   = "center";
+    toolbar.style.gap          = "12px";
+    toolbar.style.padding      = "12px 20px";
+}
+
+var searchInput = document.getElementById("location-search");
+if (searchInput) {
+    searchInput.style.height       = "52px";
+    searchInput.style.fontSize     = "1rem";
+    searchInput.style.padding      = "0 20px";
+    searchInput.style.borderRadius = "10px";
+    searchInput.style.flex         = "1";
+    searchInput.style.border       = "2px solid #ccc";
+    searchInput.style.outline      = "none";
+    searchInput.style.boxSizing    = "border-box";
+    searchInput.style.alignSelf    = "center";
+}
+
+var filtrosBtn = document.querySelector("a[href='#filters-modal']");
+if (filtrosBtn) {
+    filtrosBtn.textContent         = "Filtros";
+    filtrosBtn.style.display       = "inline-flex";
+    filtrosBtn.style.alignItems    = "center";
+    filtrosBtn.style.justifyContent = "center";
+    filtrosBtn.style.height        = "52px";
+    filtrosBtn.style.fontSize      = "1rem";
+    filtrosBtn.style.padding       = "0 24px";
+    filtrosBtn.style.borderRadius  = "10px";
+    filtrosBtn.style.whiteSpace    = "nowrap";
+    filtrosBtn.style.flexShrink    = "0";
+    filtrosBtn.style.alignSelf     = "center";
+}
+
+// -------------------------------------------------------
+// Header — melhora estética do nome e botão Entrar
+// -------------------------------------------------------
+
+var header = document.querySelector("header");
+if (header) {
+    header.style.display        = "flex";
+    header.style.flexDirection  = "column";
+    header.style.alignItems     = "center";
+    header.style.justifyContent = "center";
+    header.style.padding        = "20px 16px";
+    header.style.gap            = "12px";
+}
+
+var siteTitle = document.querySelector("header h1");
+if (siteTitle) {
+    siteTitle.style.fontSize      = "3rem";
+    siteTitle.style.fontWeight    = "800";
+    siteTitle.style.letterSpacing = "1px";
+    siteTitle.style.color         = "#ffffff";
+    siteTitle.style.textShadow    = "0 2px 6px rgba(0,0,0,0.25)";
+    siteTitle.style.textAlign     = "center";
+}
+
+var entrarBtn = document.querySelector("header a.button");
+if (entrarBtn) {
+    entrarBtn.style.padding       = "14px 48px";
+    entrarBtn.style.fontSize      = "1.2rem";
+    entrarBtn.style.fontWeight    = "600";
+    entrarBtn.style.borderRadius  = "8px";
+    entrarBtn.style.letterSpacing = "0.5px";
+    entrarBtn.style.boxShadow     = "0 3px 10px rgba(0,0,0,0.2)";
+    entrarBtn.style.transition    = "transform 0.15s, box-shadow 0.15s";
+    entrarBtn.addEventListener("mouseover", function () {
+        this.style.transform = "translateY(-2px)";
+        this.style.boxShadow = "0 6px 16px rgba(0,0,0,0.25)";
+    });
+    entrarBtn.addEventListener("mouseout", function () {
+        this.style.transform = "translateY(0)";
+        this.style.boxShadow = "0 3px 10px rgba(0,0,0,0.2)";
+    });
+}
+
+// -------------------------------------------------------
+// Bottom nav — aumenta a barra e os ícones
+// -------------------------------------------------------
+
+var bottomNav = document.getElementById("bottom-nav");
+if (bottomNav) {
+    bottomNav.style.height    = "90px";
+    bottomNav.style.padding   = "0 16px";
+
+    var navUl = bottomNav.querySelector("ul");
+    if (navUl) {
+        navUl.style.height     = "100%";
+        navUl.style.display    = "flex";
+        navUl.style.alignItems = "center";
+    }
+
+    var navLinks = bottomNav.querySelectorAll("a");
+    for (var n = 0; n < navLinks.length; n++) {
+        navLinks[n].style.display     = "flex";
+        navLinks[n].style.alignItems  = "center";
+        navLinks[n].style.padding     = "8px 16px";
+    }
+
+    var navIcons = bottomNav.querySelectorAll("img");
+    for (var o = 0; o < navIcons.length; o++) {
+        navIcons[o].style.width  = "44px";
+        navIcons[o].style.height = "44px";
+    }
+}
+
+// -------------------------------------------------------
+// Perfil — aumenta tamanho das informações exibidas
+// -------------------------------------------------------
+
+var profileContent = document.querySelector(".profile-content");
+if (profileContent) {
+
+    // Título "Informações do Perfil"
+    var tituloSecao = profileContent.querySelector("h2:first-of-type");
+    if (tituloSecao) {
+        tituloSecao.style.fontSize        = "1.8rem";
+        tituloSecao.style.fontWeight      = "800";
+        tituloSecao.style.color           = "#ffffff";
+        tituloSecao.style.textShadow      = "0 2px 8px rgba(0,0,0,0.6)";
+        tituloSecao.style.background      = "rgba(26, 46, 90, 0.55)";
+        tituloSecao.style.backdropFilter  = "blur(4px)";
+        tituloSecao.style.padding         = "10px 24px";
+        tituloSecao.style.borderRadius    = "10px";
+        tituloSecao.style.display         = "inline-block";
+        tituloSecao.style.marginBottom    = "16px";
+        tituloSecao.style.letterSpacing   = "0.5px";
+    }
+
+    // Nome do usuário dentro do card
+    var nomeCard = profileContent.querySelector(".profile-card > h2");
+    if (nomeCard) {
+        nomeCard.style.fontSize = "1.5rem";
+    }
+
+    // Título "Dados do Usuário"
+    var tituloInfo = profileContent.querySelector(".profile-info h3");
+    if (tituloInfo) {
+        tituloInfo.style.fontSize   = "1.1rem";
+        tituloInfo.style.fontWeight = "700";
+        tituloInfo.style.marginBottom = "8px";
+    }
+
+    // Parágrafos de dados do usuário
+    var paragrafos = profileContent.querySelectorAll(".profile-info p");
+    for (var pi = 0; pi < paragrafos.length; pi++) {
+        paragrafos[pi].style.fontSize   = "1rem";
+        paragrafos[pi].style.lineHeight = "1.8";
+    }
 }
 
 // -------------------------------------------------------
