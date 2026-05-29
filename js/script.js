@@ -161,7 +161,8 @@ for (var j = 0; j < checkboxesFavorito.length; j++) {
         checkbox.checked = true;
         if (label) {
             label.style.backgroundImage = "url('imagens/coracaoverm.png')";
-            label.style.backgroundSize = "cover";
+            label.style.backgroundSize = "30px";
+            label.style.backgroundColor = "white";
             label.style.backgroundPosition = "center";
         }
     }
@@ -174,7 +175,8 @@ for (var j = 0; j < checkboxesFavorito.length; j++) {
             localStorage.setItem("fav_" + thisId, "true");
             if (thisLabel) {
                 thisLabel.style.backgroundImage = "url('imagens/coracaoverm.png')";
-                thisLabel.style.backgroundSize = "cover";
+                thisLabel.style.backgroundSize = "30px";
+                thisLabel.style.backgroundColor = "white";
                 thisLabel.style.backgroundPosition = "center";
             }
         } else {
@@ -182,6 +184,7 @@ for (var j = 0; j < checkboxesFavorito.length; j++) {
             if (thisLabel) {
                 thisLabel.style.backgroundImage = "url('imagens/like.png')";
                 thisLabel.style.backgroundSize = "20px";
+                thisLabel.style.backgroundColor = "white";
                 thisLabel.style.backgroundPosition = "center";
             }
         }
@@ -380,7 +383,7 @@ function renderizarFavoritos() {
                 "<fieldset class='favorite-form'>" +
                     "<legend class='visually-hidden'>Favoritar</legend>" +
                     "<input type='checkbox' id='" + favId + "-fav' class='favorite-checkbox' checked>" +
-                    "<label for='" + favId + "-fav' class='star' style=\"background-image:url('imagens/coracaoverm.png');background-size:cover;background-position:center\">" +
+                    "<label for='" + favId + "-fav' class='star' style=\"background-image:url('imagens/coracaoverm.png');background-size:30px;background-color:white;background-position:center\">" +
                         "<span class='sr-only'>Favoritar</span>" +
                     "</label>" +
                 "</fieldset>" +
