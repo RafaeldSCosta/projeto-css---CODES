@@ -13,7 +13,7 @@ body {
     background-position: center;
     color: #333;
     min-height: 100vh;
-    padding-bottom: 80px;
+    padding-bottom: 100px;
 }
 
 header {
@@ -251,27 +251,37 @@ textarea {
     bottom: 0;
     background: white;
     border-top: 1px solid #ddd;
-    padding: 10px 0;
-    z-index: 100;
+    height: 90px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #bottom-nav ul {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 #bottom-nav a {
-    display: inline-flex;
-    justify-content: center;
+    display: flex;
     align-items: center;
-    width: 42px;
-    height: 42px;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
 }
 
 #bottom-nav img {
-    width: 24px;
-    height: 24px;
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    display: block;
 }
 
 #listagem {
@@ -373,7 +383,7 @@ article p {
     display: none;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 20px 20px 110px 20px;
     z-index: 1000;
 }
 
@@ -385,7 +395,7 @@ article p {
     background: white;
     border-radius: 16px;
     width: min(720px, 100%);
-    max-height: calc(100vh - 40px);
+    max-height: calc(100vh - 130px);
     overflow-y: auto;
     padding: 24px;
     position: relative;
@@ -725,7 +735,7 @@ main > .chat-layout {
 #conv-carlos:checked ~ .chat-content .conversation-carlos,
 #conv-pedro:checked ~ .chat-content .conversation-pedro,
 #conv-maria:checked ~ .chat-content .conversation-maria,
-#conv-joao:checked ~ .chat-content .conversation-joao,
+#conv-roger:checked ~ .chat-content .conversation-roger,
 #conv-carla:checked ~ .chat-content .conversation-carla {
     display: flex;
     flex-direction: column;

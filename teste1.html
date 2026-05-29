@@ -22,11 +22,9 @@
     </nav>
 
     <main>
-        <form class="toolbar" action="#" method="get">
-            <label for="location-search" class="visually-hidden">Buscar localização</label>
-            <input type="search" id="location-search" name="q" placeholder="Buscar por localização...">
-            <a href="#filters-modal" class="button secondary">⚙️ Filtros</a>
-        </form>
+        <div class="toolbar">
+            <a href="#filters-modal" class="button secondary" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 16px;">🔍 Abrir Busca e Filtros</a>
+        </div>
 
         <aside id="filters-modal" class="modal">
             <section class="modal-content">
@@ -35,184 +33,368 @@
                 
                 <form class="filters-content" action="#">
                     <h2 class="visually-hidden">Opções de Filtro</h2>
+                    
+                    <fieldset>
+                        <legend>Busca por Localização ou Palavra-chave</legend>
+                        <input type="search" id="location-search" name="q" placeholder="Ex: Diadema, Studio, Pinheiros...">
+                    </fieldset>
+
                     <fieldset>
                         <legend>Preço</legend>
                         <label for="maxPrice">Preço máximo: R$ 2.000</label>
-                        <input type="range" id="maxPrice" name="maxPrice" min="500" max="3000" value="2000" step="100">
+                        <input type="range" id="maxPrice" name="maxPrice" min="500" max="4000" value="2000" step="100">
                     </fieldset>
 
                     <fieldset>
                         <legend>Quartos</legend>
-                        <ul>
-                            <li><label><input type="checkbox" name="bedrooms" value="1"> 1 quarto</label></li>
-                            <li><label><input type="checkbox" name="bedrooms" value="2"> 2 quartos</label></li>
-                            <li><label><input type="checkbox" name="bedrooms" value="3"> 3 quartos</label></li>
-                            <li><label><input type="checkbox" name="bedrooms" value="4+"> 4+ quartos</label></li>
+                        <ul style="display: flex; gap: 16px; flex-wrap: wrap; list-style: none;">
+                            <li><label><input type="checkbox" name="bedrooms" value="1"> 1</label></li>
+                            <li><label><input type="checkbox" name="bedrooms" value="2"> 2</label></li>
+                            <li><label><input type="checkbox" name="bedrooms" value="3"> 3</label></li>
+                            <li><label><input type="checkbox" name="bedrooms" value="4+"> 4+</label></li>
                         </ul>
                     </fieldset>
 
                     <fieldset>
                         <legend>Pets</legend>
-                        <ul>
+                        <ul style="display: flex; gap: 16px; flex-wrap: wrap; list-style: none;">
                             <li><label><input type="radio" name="pets-filter" value="any" checked> Indiferente</label></li>
-                            <li><label><input type="radio" name="pets-filter" value="yes"> Aceita pets</label></li>
+                            <li><label><input type="radio" name="pets-filter" value="yes"> Sim</label></li>
+                            <li><label><input type="radio" name="pets-filter" value="no"> Não</label></li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Academia</legend>
+                        <ul style="display: flex; gap: 16px; flex-wrap: wrap; list-style: none;">
+                            <li><label><input type="radio" name="gym-filter" value="any" checked> Indiferente</label></li>
+                            <li><label><input type="radio" name="gym-filter" value="yes"> Sim</label></li>
+                            <li><label><input type="radio" name="gym-filter" value="no"> Não</label></li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Próximo ao metrô</legend>
+                        <ul style="display: flex; gap: 16px; flex-wrap: wrap; list-style: none;">
+                            <li><label><input type="radio" name="subway-filter" value="any" checked> Indiferente</label></li>
+                            <li><label><input type="radio" name="subway-filter" value="yes"> Sim</label></li>
+                            <li><label><input type="radio" name="subway-filter" value="no"> Não</label></li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Moradores</legend>
+                        <ul style="display: flex; gap: 16px; flex-wrap: wrap; list-style: none;">
+                            <li><label><input type="radio" name="roommates-filter" value="any" checked> Indiferente</label></li>
+                            <li><label><input type="radio" name="roommates-filter" value="extroverted"> Extrovertido</label></li>
+                            <li><label><input type="radio" name="roommates-filter" value="introverted"> Introvertido</label></li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Piscina</legend>
+                        <ul style="display: flex; gap: 16px; flex-wrap: wrap; list-style: none;">
+                            <li><label><input type="radio" name="pool-filter" value="any" checked> Indiferente</label></li>
+                            <li><label><input type="radio" name="pool-filter" value="yes"> Sim</label></li>
+                            <li><label><input type="radio" name="pool-filter" value="no"> Não</label></li>
                         </ul>
                     </fieldset>
                     
-                    <button type="reset" class="button secondary">Limpar</button>
-                    <button type="submit" class="button">Aplicar</button>
+                    <div class="form-actions" style="justify-content: flex-end; margin-top: 16px;">
+                        <button type="reset" class="button secondary">Limpar</button>
+                        <button type="submit" class="button">Aplicar Filtros</button>
+                    </div>
                 </form>
             </section>
         </aside>
 
         <ul id="listagem">
             <li>
-                <article class="property-card" data-price="1200" data-location="diadema">
+                <article class="property-card" data-price="1200" data-location="diadema" data-bedrooms="1" data-pets="yes" data-gym="no" data-subway="no" data-roommates="any" data-pool="no">
                     <fieldset class="favorite-form">
                         <legend class="visually-hidden">Favoritar</legend>
-                        <input type="checkbox" id="fav-1" name="favorite-1" class="favorite-checkbox" aria-label="Favoritar Apartamento em Diadema">
+                        <input type="checkbox" id="fav-1" class="favorite-checkbox">
                         <label for="fav-1" class="star"></label>
                     </fieldset>
-                    <figure>
-                        <img src="imagens/apartamento.jpg" alt="Fachada do Imóvel">
-                    </figure>
-                    <h2>Apartamento</h2>
+                    <figure><img src="imagens/apartamento.jpg" alt="Fachada do Imóvel"></figure>
+                    <h2>Apartamento Aconchegante</h2>
                     <p class="vacancies"><small>1 vaga disponível</small></p>
                     <h3>R$ 1.200/mês</h3>
-                    <aside>
-                        <ul>
-                            <li><small>Diadema</small></li>
-                            <li><small>50m²</small></li>
-                            <li><small>São Paulo</small></li>
-                        </ul>
-                    </aside>
-                    <p>Quarto aconchegante e mobiliado com cama de solteiro e escrivaninha.</p>
+                    <aside><ul><li><small>Diadema</small></li><li><small>50m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Localizado em Diadema, este imóvel oferece um quarto bem iluminado. Excelente custo-benefício para quem tem pets e busca um bairro estritamente residencial e tranquilo.</p>
                     <a href="#property-1" class="button">Ver Detalhes</a>
                 </article>
             </li>
 
             <li>
-                <article class="property-card" data-price="1500" data-location="vila-olimpia">
+                <article class="property-card" data-price="1500" data-location="vila-olimpia" data-bedrooms="1" data-pets="no" data-gym="yes" data-subway="yes" data-roommates="introverted" data-pool="yes">
                     <fieldset class="favorite-form">
                         <legend class="visually-hidden">Favoritar</legend>
-                        <input type="checkbox" id="fav-2" name="favorite-2" class="favorite-checkbox" aria-label="Favoritar Studio em Vila Olímpia">
+                        <input type="checkbox" id="fav-2" class="favorite-checkbox">
                         <label for="fav-2" class="star"></label>
                     </fieldset>
-                    <figure>
-                        <img src="imagens/quarto2.jpg" alt="Interior do Studio">
-                    </figure>
-                    <h2>Studio</h2>
+                    <figure><img src="imagens/quarto2.jpg" alt="Interior do Studio"></figure>
+                    <h2>Studio Moderno</h2>
                     <p class="vacancies"><small>2 vagas disponíveis</small></p>
                     <h3>R$ 1.500/mês</h3>
-                    <aside>
-                        <ul>
-                            <li><small>Vila Olímpia</small></li>
-                            <li><small>65m²</small></li>
-                            <li><small>São Paulo</small></li>
-                        </ul>
-                    </aside>
-                    <p>Studio moderno com varanda, suíte privativa e ar-condicionado.</p>
+                    <aside><ul><li><small>Vila Olímpia</small></li><li><small>65m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Lindo studio de 65m² na Vila Olímpia, ideal para jovens profissionais. Condomínio completo com academia, piscina e a poucos passos do metrô. Ambiente focado e morador atual introvertido.</p>
                     <a href="#property-2" class="button">Ver Detalhes</a>
                 </article>
             </li>
 
             <li>
-                <article class="property-card" data-price="1800" data-location="vila-mariana">
+                <article class="property-card" data-price="1800" data-location="vila-mariana" data-bedrooms="1" data-pets="yes" data-gym="no" data-subway="yes" data-roommates="extroverted" data-pool="no">
                     <fieldset class="favorite-form">
                         <legend class="visually-hidden">Favoritar</legend>
-                        <input type="checkbox" id="fav-3" name="favorite-3" class="favorite-checkbox" aria-label="Favoritar Ap na Vila Mariana">
+                        <input type="checkbox" id="fav-3" class="favorite-checkbox">
                         <label for="fav-3" class="star"></label>
                     </fieldset>
-                    <figure>
-                        <img src="imagens/apartamento.jpg" alt="Apartamento Vila Mariana">
-                    </figure>
+                    <figure><img src="imagens/apartamento.jpg" alt="Apartamento Vila Mariana"></figure>
                     <h2>Kitnet Integrada</h2>
                     <p class="vacancies"><small>Sem vagas</small></p>
                     <h3>R$ 1.800/mês</h3>
-                    <aside>
-                        <ul>
-                            <li><small>Vila Mariana</small></li>
-                            <li><small>40m²</small></li>
-                            <li><small>São Paulo</small></li>
-                        </ul>
-                    </aside>
-                    <p>Próximo ao metrô, ideal para estudantes. Excelente isolamento acústico.</p>
-                    <a href="#property-1" class="button">Ver Detalhes</a>
+                    <aside><ul><li><small>Vila Mariana</small></li><li><small>40m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Espaço de 40m² prático e dinâmico na Vila Mariana. Aceita animais, fica colado à estação de metrô e o colega de quarto é super extrovertido. Excelente isolamento acústico para os estudos.</p>
+                    <a href="#property-3" class="button">Ver Detalhes</a>
                 </article>
             </li>
 
             <li>
-                <article class="property-card" data-price="2200" data-location="pinheiros">
+                <article class="property-card" data-price="2200" data-location="pinheiros" data-bedrooms="2" data-pets="yes" data-gym="yes" data-subway="yes" data-roommates="any" data-pool="no">
                     <fieldset class="favorite-form">
                         <legend class="visually-hidden">Favoritar</legend>
-                        <input type="checkbox" id="fav-4" name="favorite-4" class="favorite-checkbox" aria-label="Favoritar Ap em Pinheiros">
+                        <input type="checkbox" id="fav-4" class="favorite-checkbox">
                         <label for="fav-4" class="star"></label>
                     </fieldset>
-                    <figure>
-                        <img src="imagens/quarto2.jpg" alt="Apartamento Pinheiros">
-                    </figure>
+                    <figure><img src="imagens/quarto2.jpg" alt="Apartamento Pinheiros"></figure>
                     <h2>Apartamento Duplex</h2>
                     <p class="vacancies"><small>1 vaga disponível</small></p>
                     <h3>R$ 2.200/mês</h3>
-                    <aside>
-                        <ul>
-                            <li><small>Pinheiros</small></li>
-                            <li><small>75m²</small></li>
-                            <li><small>São Paulo</small></li>
-                        </ul>
-                    </aside>
-                    <p>Espaço amplo com varanda gourmet, armários embutidos e ótima iluminação.</p>
-                    <a href="#property-2" class="button">Ver Detalhes</a>
+                    <aside><ul><li><small>Pinheiros</small></li><li><small>75m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Imóvel amplo em Pinheiros com 2 quartos e varanda gourmet. Conta com academia de alto padrão no prédio e acesso muito fácil ao metrô. Perfeito para quem gosta de receber visitas.</p>
+                    <a href="#property-4" class="button">Ver Detalhes</a>
                 </article>
             </li>
 
             <li>
-                <article class="property-card" data-price="1400" data-location="bela-vista">
+                <article class="property-card" data-price="1400" data-location="bela-vista" data-bedrooms="1" data-pets="no" data-gym="no" data-subway="yes" data-roommates="introverted" data-pool="no">
                     <fieldset class="favorite-form">
                         <legend class="visually-hidden">Favoritar</legend>
-                        <input type="checkbox" id="fav-5" name="favorite-5" class="favorite-checkbox" aria-label="Favoritar Ap na Bela Vista">
+                        <input type="checkbox" id="fav-5" class="favorite-checkbox">
                         <label for="fav-5" class="star"></label>
                     </fieldset>
-                    <figure>
-                        <img src="imagens/apartamento.jpg" alt="Apartamento Bela Vista">
-                    </figure>
+                    <figure><img src="imagens/quarto1.jpg" alt="Apartamento Bela Vista"></figure>
                     <h2>Quarto Individual</h2>
                     <p class="vacancies"><small>1 vaga disponível</small></p>
                     <h3>R$ 1.400/mês</h3>
-                    <aside>
-                        <ul>
-                            <li><small>Bela Vista</small></li>
-                            <li><small>45m²</small></li>
-                            <li><small>São Paulo</small></li>
-                        </ul>
-                    </aside>
-                    <p>Ambiente limpo, silencioso, mobiliado e com contas inclusas no aluguel.</p>
-                    <a href="#property-1" class="button">Ver Detalhes</a>
+                    <aside><ul><li><small>Bela Vista</small></li><li><small>45m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>No coração da Bela Vista, este apartamento é limpo, muito silencioso e com contas inclusas no pacote. Excelente opção perto do metrô para quem valoriza a própria privacidade e o sossego.</p>
+                    <a href="#property-5" class="button">Ver Detalhes</a>
                 </article>
             </li>
 
             <li>
-                <article class="property-card" data-price="1650" data-location="santana">
+                <article class="property-card" data-price="1650" data-location="santana" data-bedrooms="1" data-pets="yes" data-gym="yes" data-subway="yes" data-roommates="extroverted" data-pool="yes">
                     <fieldset class="favorite-form">
                         <legend class="visually-hidden">Favoritar</legend>
-                        <input type="checkbox" id="fav-6" name="favorite-6" class="favorite-checkbox" aria-label="Favoritar Ap em Santana">
+                        <input type="checkbox" id="fav-6" class="favorite-checkbox">
                         <label for="fav-6" class="star"></label>
                     </fieldset>
-                    <figure>
-                        <img src="imagens/quarto2.jpg" alt="Apartamento Santana">
-                    </figure>
+                    <figure><img src="imagens/quarto2.jpg" alt="Apartamento Santana"></figure>
                     <h2>Studio Mobiliado</h2>
                     <p class="vacancies"><small>2 vagas disponíveis</small></p>
                     <h3>R$ 1.650/mês</h3>
-                    <aside>
-                        <ul>
-                            <li><small>Santana</small></li>
-                            <li><small>55m²</small></li>
-                            <li><small>São Paulo</small></li>
-                        </ul>
-                    </aside>
-                    <p>Condomínio moderno com lavanderia coletiva, academia e portaria 24h.</p>
-                    <a href="#property-2" class="button">Ver Detalhes</a>
+                    <aside><ul><li><small>Santana</small></li><li><small>55m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Condomínio moderno e cheio de vida na Zona Norte. Infraestrutura conta com academia bem equipada e piscina. O morador atual é animado, gosta de socializar e o espaço aceita pets.</p>
+                    <a href="#property-6" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+
+            <li>
+                <article class="property-card" data-price="2800" data-location="moema" data-bedrooms="3" data-pets="yes" data-gym="yes" data-subway="yes" data-roommates="any" data-pool="yes">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-7" class="favorite-checkbox">
+                        <label for="fav-7" class="star"></label>
+                    </fieldset>
+                    <figure><img src="imagens/apartamento.jpg" alt="Apartamento Moema"></figure>
+                    <h2>Cobertura Espaçosa</h2>
+                    <p class="vacancies"><small>1 vaga disponível</small></p>
+                    <h3>R$ 2.800/mês</h3>
+                    <aside><ul><li><small>Moema</small></li><li><small>110m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Imóvel de alto padrão com 3 quartos amplos em um dos melhores bairros. Infraestrutura espetacular com piscina, academia de luxo e metrô a 5 minutos. Ideal para quem procura conforto total.</p>
+                    <a href="#property-7" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+
+            <li>
+                <article class="property-card" data-price="1900" data-location="tatuape" data-bedrooms="2" data-pets="no" data-gym="yes" data-subway="yes" data-roommates="extroverted" data-pool="yes">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-8" class="favorite-checkbox">
+                        <label for="fav-8" class="star"></label>
+                    </fieldset>
+                    <figure><img src="imagens/quarto1.jpg" alt="Apartamento Tatuapé"></figure>
+                    <h2>Apartamento Familiar</h2>
+                    <p class="vacancies"><small>2 vagas disponíveis</small></p>
+                    <h3>R$ 1.900/mês</h3>
+                    <aside><ul><li><small>Tatuapé</small></li><li><small>80m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Condomínio clube no Tatuapé com lazer de sobra: piscina ensolarada e academia completa. Os colegas de apartamento são super simpáticos e receptivos. Localização privilegiada ao lado do transporte público.</p>
+                    <a href="#property-8" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+
+            <li>
+                <article class="property-card" data-price="1100" data-location="butanta" data-bedrooms="1" data-pets="yes" data-gym="no" data-subway="yes" data-roommates="introverted" data-pool="no">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-9" class="favorite-checkbox">
+                        <label for="fav-9" class="star"></label>
+                    </fieldset>
+                    <figure><img src="imagens/quarto2.jpg" alt="Apartamento Butantã"></figure>
+                    <h2>Apê Prático USP</h2>
+                    <p class="vacancies"><small>1 vaga disponível</small></p>
+                    <h3>R$ 1.100/mês</h3>
+                    <aside><ul><li><small>Butantã</small></li><li><small>45m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Oportunidade econômica focada em universitários e estudantes. Aceita pets, fica extremamente próximo à estação Butantã e possui um ambiente respeitoso com moradores focados nos estudos e mais reservados.</p>
+                    <a href="#property-9" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+
+            <li>
+                <article class="property-card" data-price="1700" data-location="santo-amaro" data-bedrooms="2" data-pets="yes" data-gym="yes" data-subway="no" data-roommates="any" data-pool="no">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-10" class="favorite-checkbox">
+                        <label for="fav-10" class="star"></label>
+                    </fieldset>
+                    <figure><img src="imagens/apartamento.jpg" alt="Apartamento Santo Amaro"></figure>
+                    <h2>Residencial Arborizado</h2>
+                    <p class="vacancies"><small>1 vaga disponível</small></p>
+                    <h3>R$ 1.700/mês</h3>
+                    <aside><ul><li><small>Santo Amaro</small></li><li><small>70m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Apartamento charmoso em rua arborizada. Tem uma área fitness excelente no prédio e é muito receptivo a animais de estimação. Embora não tenha metrô na porta, o acesso por ônibus é rápido.</p>
+                    <a href="#property-10" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+
+            <li>
+                <article class="property-card" data-price="1300" data-location="ipiranga" data-bedrooms="1" data-pets="no" data-gym="no" data-subway="yes" data-roommates="introverted" data-pool="no">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-11" class="favorite-checkbox">
+                        <label for="fav-11" class="star"></label>
+                    </fieldset>
+                    <figure><img src="imagens/quarto1.jpg" alt="Apartamento Ipiranga"></figure>
+                    <h2>Kitnet Clássica</h2>
+                    <p class="vacancies"><small>1 vaga disponível</small></p>
+                    <h3>R$ 1.300/mês</h3>
+                    <aside><ul><li><small>Ipiranga</small></li><li><small>35m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Construção antiga, porém muito bem conservada e charmosa. Região histórica com caminhada rápida até a estação. Perfil do morador atual é bem quieto, respeitando horários de silêncio e leitura.</p>
+                    <a href="#property-11" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+
+            <li>
+                <article class="property-card" data-price="2500" data-location="lapa" data-bedrooms="3" data-pets="yes" data-gym="no" data-subway="yes" data-roommates="extroverted" data-pool="no">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-12" class="favorite-checkbox">
+                        <label for="fav-12" class="star"></label>
+                    </fieldset>
+                    <figure><img src="imagens/apartamento.jpg" alt="Apartamento Lapa"></figure>
+                    <h2>Amplo Apartamento</h2>
+                    <p class="vacancies"><small>2 vagas disponíveis</small></p>
+                    <h3>R$ 2.500/mês</h3>
+                    <aside><ul><li><small>Lapa</small></li><li><small>95m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Espaço generoso na Lapa, ideal para repúblicas jovens e divertidas. Bairro cheio de vida, próximo aos trilhos de transporte e muito amigável para pets. Sem área de lazer, mas com muito espaço interno.</p>
+                    <a href="#property-12" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+
+            <li>
+                <article class="property-card" data-price="1550" data-location="centro" data-bedrooms="1" data-pets="no" data-gym="yes" data-subway="yes" data-roommates="any" data-pool="no">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-13" class="favorite-checkbox">
+                        <label for="fav-13" class="star"></label>
+                    </fieldset>
+                    <figure><img src="imagens/quarto2.jpg" alt="Apartamento Centro"></figure>
+                    <h2>Studio Central</h2>
+                    <p class="vacancies"><small>1 vaga disponível</small></p>
+                    <h3>R$ 1.550/mês</h3>
+                    <aside><ul><li><small>Centro</small></li><li><small>40m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Viva no coração pulsante de São Paulo! Prédio reformado de ponta a ponta com academia no rooftop e a passos da estação República. Ambiente com pegada totalmente urbana e descolada.</p>
+                    <a href="#property-13" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+
+            <li>
+                <article class="property-card" data-price="1450" data-location="osasco" data-bedrooms="2" data-pets="yes" data-gym="yes" data-subway="no" data-roommates="extroverted" data-pool="yes">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-14" class="favorite-checkbox">
+                        <label for="fav-14" class="star"></label>
+                    </fieldset>
+                    <figure><img src="imagens/apartamento.jpg" alt="Apartamento Osasco"></figure>
+                    <h2>Condomínio Clube</h2>
+                    <p class="vacancies"><small>2 vagas disponíveis</small></p>
+                    <h3>R$ 1.450/mês</h3>
+                    <aside><ul><li><small>Osasco</small></li><li><small>65m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Complexo incrível que oferece tudo sem sair de casa: piscinas imensas, quadras e academia. A vizinhança e os moradores são bastante sociáveis e organizam eventos. Seu pet será muito bem-vindo.</p>
+                    <a href="#property-14" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+
+            <li>
+                <article class="property-card" data-price="2100" data-location="sao-bernardo" data-bedrooms="3" data-pets="yes" data-gym="yes" data-subway="no" data-roommates="any" data-pool="yes">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-15" class="favorite-checkbox">
+                        <label for="fav-15" class="star"></label>
+                    </fieldset>
+                    <figure><img src="imagens/quarto1.jpg" alt="Apartamento SBC"></figure>
+                    <h2>Apartamento Completo</h2>
+                    <p class="vacancies"><small>1 vaga disponível</small></p>
+                    <h3>R$ 2.100/mês</h3>
+                    <aside><ul><li><small>S. Bernardo do Campo</small></li><li><small>85m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Qualidade de vida excelente para o seu dia a dia e home office. Edifício familiar com lazer de clube (piscinas e academia top). Varanda envidraçada maravilhosa e muito espaço para seu cachorro de porte médio.</p>
+                    <a href="#property-15" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+
+            <li>
+                <article class="property-card" data-price="1250" data-location="liberdade" data-bedrooms="1" data-pets="no" data-gym="no" data-subway="yes" data-roommates="introverted" data-pool="no">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-16" class="favorite-checkbox">
+                        <label for="fav-16" class="star"></label>
+                    </fieldset>
+                    <figure><img src="imagens/apartamento.jpg" alt="Apartamento Liberdade"></figure>
+                    <h2>Quarto Compacto</h2>
+                    <p class="vacancies"><small>1 vaga disponível</small></p>
+                    <h3>R$ 1.250/mês</h3>
+                    <aside><ul><li><small>Liberdade</small></li><li><small>30m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Localização privilegiada a passos do metrô São Joaquim e praças de alimentação orientais. Muito prático para o dia a dia acelerado. Ideal para pessoas mais introspectivas que buscam descanso ao voltar do trabalho.</p>
+                    <a href="#property-16" class="button">Ver Detalhes</a>
+                </article>
+            </li>
+
+            <li>
+                <article class="property-card" data-price="1950" data-location="vila-olimpia" data-bedrooms="1" data-pets="yes" data-gym="yes" data-subway="yes" data-roommates="extroverted" data-pool="yes">
+                    <fieldset class="favorite-form">
+                        <legend class="visually-hidden">Favoritar</legend>
+                        <input type="checkbox" id="fav-17" class="favorite-checkbox">
+                        <label for="fav-17" class="star"></label>
+                    </fieldset>
+                    <figure><img src="imagens/apartamento.jpg" alt="Apartamento Vila Olímpia"></figure>
+                    <h2>Studio Animação</h2>
+                    <p class="vacancies"><small>1 vaga disponível</small></p>
+                    <h3>R$ 1.950/mês</h3>
+                    <aside><ul><li><small>Vila Olímpia</small></li><li><small>50m²</small></li><li><small>São Paulo</small></li></ul></aside>
+                    <p>Incrível apartamento na Vila Olímpia para quem ama agitação! Prédio com academia e piscina, aceita pets e coladinho no metrô. Morador super extrovertido e parceiro.</p>
+                    <a href="#property-17" class="button">Ver Detalhes</a>
                 </article>
             </li>
         </ul>
@@ -239,68 +421,429 @@
 
     <aside id="property-1" class="modal">
         <article class="modal-content">
-            <a href="#" class="close" aria-label="Fechar detalhes">&times;</a>
-            <h2>Apartamento - Detalhes</h2>
-            <figure>
-                <img src="imagens/apartamento.jpg" alt="Detalhes do Imóvel">
-            </figure>
-            <p><strong>Preço sob consulta</strong></p>
-            <h3>Características</h3>
-            <ul>
-                <li>Quartos: 1</li>
-                <li>Área: Disponível no card</li>
-            </ul>
-            <h3>Moradores</h3>
+            <a href="#" class="close">&times;</a>
+            <h2>Apartamento Aconchegante - Detalhes</h2>
+            <figure><img src="imagens/apartamento.jpg" alt=""></figure>
+            <p><strong>R$ 1.200/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 1</p><p><strong>Tamanho:</strong> 50m²</p></div>
+            <h3>Morador Atual</h3>
             <div class="residents-grid">
                 <a href="#resident-ana" class="resident-card">
-                    <span class="resident-avatar">
-                        <img src="imagens/user.png" alt="Foto de Ana">
-                    </span>
+                    <span class="resident-avatar" style="background:#e83e8c; color:white;">A</span>
                     <span class="resident-name">Ana</span>
                     <small>Ver Perfil</small>
                 </a>
             </div>
-            <a href="#" class="button">Agendar Visita</a>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
         </article>
     </aside>
 
     <aside id="property-2" class="modal">
         <article class="modal-content">
-            <a href="#" class="close" aria-label="Fechar detalhes">&times;</a>
-            <h2>Studio - Detalhes</h2>
-            <figure>
-                <img src="imagens/quarto2.jpg" alt="Detalhes do Imóvel">
-            </figure>
-            <p><strong>Preço sob consulta</strong></p>
-            <h3>Características</h3>
-            <ul>
-                <li>Quartos: 1</li>
-                <li>Área: Disponível no card</li>
-            </ul>
-            <h3>Moradores</h3>
+            <a href="#" class="close">&times;</a>
+            <h2>Studio Moderno - Detalhes</h2>
+            <figure><img src="imagens/quarto2.jpg" alt=""></figure>
+            <p><strong>R$ 1.500/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 1</p><p><strong>Tamanho:</strong> 65m²</p></div>
+            <h3>Morador Atual</h3>
+            <div class="residents-grid">
+                <a href="#resident-carla" class="resident-card">
+                    <span class="resident-avatar" style="background:#6f42c1; color:white;">C</span>
+                    <span class="resident-name">Carla</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
+        </article>
+    </aside>
+
+    <aside id="property-3" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Kitnet Integrada - Detalhes</h2>
+            <figure><img src="imagens/apartamento.jpg" alt=""></figure>
+            <p><strong>R$ 1.800/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 1</p><p><strong>Tamanho:</strong> 40m²</p></div>
+            <h3>Morador Atual</h3>
+            <div class="residents-grid">
+                <a href="#resident-elena" class="resident-card">
+                    <span class="resident-avatar" style="background:#fd7e14; color:white;">E</span>
+                    <span class="resident-name">Elena</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
+        </article>
+    </aside>
+
+    <aside id="property-4" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Apartamento Duplex - Detalhes</h2>
+            <figure><img src="imagens/quarto2.jpg" alt=""></figure>
+            <p><strong>R$ 2.200/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 2</p><p><strong>Tamanho:</strong> 75m²</p></div>
+            <h3>Morador Atual</h3>
+            <div class="residents-grid">
+                <a href="#resident-bruno" class="resident-card">
+                    <span class="resident-avatar" style="background:#007bff; color:white;">B</span>
+                    <span class="resident-name">Bruno</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
+        </article>
+    </aside>
+
+    <aside id="property-5" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Quarto Individual - Detalhes</h2>
+            <figure><img src="imagens/quarto1.jpg" alt=""></figure>
+            <p><strong>R$ 1.400/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 1</p><p><strong>Tamanho:</strong> 45m²</p></div>
+            <h3>Morador Atual</h3>
             <div class="residents-grid">
                 <a href="#resident-ana" class="resident-card">
-                    <span class="resident-avatar">
-                        <img src="imagens/user.png" alt="Foto de Ana">
-                    </span>
+                    <span class="resident-avatar" style="background:#e83e8c; color:white;">A</span>
                     <span class="resident-name">Ana</span>
                     <small>Ver Perfil</small>
                 </a>
             </div>
-            <a href="#" class="button">Agendar Visita</a>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
+        </article>
+    </aside>
+
+    <aside id="property-6" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Studio Mobiliado - Detalhes</h2>
+            <figure><img src="imagens/quarto2.jpg" alt=""></figure>
+            <p><strong>R$ 1.650/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 1</p><p><strong>Tamanho:</strong> 55m²</p></div>
+            <h3>Morador Atual</h3>
+            <div class="residents-grid">
+                <a href="#resident-bruno" class="resident-card">
+                    <span class="resident-avatar" style="background:#007bff; color:white;">B</span>
+                    <span class="resident-name">Bruno</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
+        </article>
+    </aside>
+
+    <aside id="property-7" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Cobertura Espaçosa - Detalhes</h2>
+            <figure><img src="imagens/apartamento.jpg" alt=""></figure>
+            <p><strong>R$ 2.800/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 3</p><p><strong>Tamanho:</strong> 110m²</p></div>
+            <h3>Morador Atual</h3>
+            <div class="residents-grid">
+                <a href="#resident-diego" class="resident-card">
+                    <span class="resident-avatar" style="background:#17a2b8; color:white;">D</span>
+                    <span class="resident-name">Diego</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
+        </article>
+    </aside>
+
+    <aside id="property-8" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Apartamento Familiar - Detalhes</h2>
+            <figure><img src="imagens/quarto1.jpg" alt=""></figure>
+            <p><strong>R$ 1.900/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 2</p><p><strong>Tamanho:</strong> 80m²</p></div>
+            <h3>Morador Atual</h3>
+            <div class="residents-grid">
+                <a href="#resident-elena" class="resident-card">
+                    <span class="resident-avatar" style="background:#fd7e14; color:white;">E</span>
+                    <span class="resident-name">Elena</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
+        </article>
+    </aside>
+
+    <aside id="property-9" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Apê Prático USP - Detalhes</h2>
+            <figure><img src="imagens/quarto2.jpg" alt=""></figure>
+            <p><strong>R$ 1.100/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 1</p><p><strong>Tamanho:</strong> 45m²</p></div>
+            <h3>Morador Atual</h3>
+            <div class="residents-grid">
+                <a href="#resident-carla" class="resident-card">
+                    <span class="resident-avatar" style="background:#6f42c1; color:white;">C</span>
+                    <span class="resident-name">Carla</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
+        </article>
+    </aside>
+
+    <aside id="property-10" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Residencial Arborizado - Detalhes</h2>
+            <figure><img src="imagens/apartamento.jpg" alt=""></figure>
+            <p><strong>R$ 1.700/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 2</p><p><strong>Tamanho:</strong> 70m²</p></div>
+            <h3>Morador Atual</h3>
+            <div class="residents-grid">
+                <a href="#resident-diego" class="resident-card">
+                    <span class="resident-avatar" style="background:#17a2b8; color:white;">D</span>
+                    <span class="resident-name">Diego</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
+        </article>
+    </aside>
+
+    <aside id="property-11" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Kitnet Clássica - Detalhes</h2>
+            <figure><img src="imagens/quarto1.jpg" alt=""></figure>
+            <p><strong>R$ 1.300/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 1</p><p><strong>Tamanho:</strong> 35m²</p></div>
+            <h3>Morador Atual</h3>
+            <div class="residents-grid">
+                <a href="#resident-ana" class="resident-card">
+                    <span class="resident-avatar" style="background:#e83e8c; color:white;">A</span>
+                    <span class="resident-name">Ana</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
+        </article>
+    </aside>
+
+    <aside id="property-12" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Amplo Apartamento - Detalhes</h2>
+            <figure><img src="imagens/apartamento.jpg" alt=""></figure>
+            <p><strong>R$ 2.500/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 3</p><p><strong>Tamanho:</strong> 95m²</p></div>
+            <h3>Morador Atual</h3>
+            <div class="residents-grid">
+                <a href="#resident-bruno" class="resident-card">
+                    <span class="resident-avatar" style="background:#007bff; color:white;">B</span>
+                    <span class="resident-name">Bruno</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
+        </article>
+    </aside>
+
+    <aside id="property-13" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Studio Central - Detalhes</h2>
+            <figure><img src="imagens/quarto2.jpg" alt=""></figure>
+            <p><strong>R$ 1.550/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 1</p><p><strong>Tamanho:</strong> 40m²</p></div>
+            <h3>Morador Atual</h3>
+            <div class="residents-grid">
+                <a href="#resident-diego" class="resident-card">
+                    <span class="resident-avatar" style="background:#17a2b8; color:white;">D</span>
+                    <span class="resident-name">Diego</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
+        </article>
+    </aside>
+
+    <aside id="property-14" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Condomínio Clube - Detalhes</h2>
+            <figure><img src="imagens/apartamento.jpg" alt=""></figure>
+            <p><strong>R$ 1.450/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 2</p><p><strong>Tamanho:</strong> 65m²</p></div>
+            <h3>Morador Atual</h3>
+            <div class="residents-grid">
+                <a href="#resident-elena" class="resident-card">
+                    <span class="resident-avatar" style="background:#fd7e14; color:white;">E</span>
+                    <span class="resident-name">Elena</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
+        </article>
+    </aside>
+
+    <aside id="property-15" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Apartamento Completo - Detalhes</h2>
+            <figure><img src="imagens/quarto1.jpg" alt=""></figure>
+            <p><strong>R$ 2.100/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 3</p><p><strong>Tamanho:</strong> 85m²</p></div>
+            <h3>Morador Atual</h3>
+            <div class="residents-grid">
+                <a href="#resident-diego" class="resident-card">
+                    <span class="resident-avatar" style="background:#17a2b8; color:white;">D</span>
+                    <span class="resident-name">Diego</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
+        </article>
+    </aside>
+
+    <aside id="property-16" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Quarto Compacto - Detalhes</h2>
+            <figure><img src="imagens/apartamento.jpg" alt=""></figure>
+            <p><strong>R$ 1.250/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 1</p><p><strong>Tamanho:</strong> 30m²</p></div>
+            <h3>Morador Atual</h3>
+            <div class="residents-grid">
+                <a href="#resident-carla" class="resident-card">
+                    <span class="resident-avatar" style="background:#6f42c1; color:white;">C</span>
+                    <span class="resident-name">Carla</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
+        </article>
+    </aside>
+
+    <aside id="property-17" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close">&times;</a>
+            <h2>Studio Animação - Detalhes</h2>
+            <figure><img src="imagens/apartamento.jpg" alt=""></figure>
+            <p><strong>R$ 1.950/mês</strong></p>
+            <div class="property-details"><p><strong>Quartos:</strong> 1</p><p><strong>Tamanho:</strong> 50m²</p></div>
+            <h3>Morador Atual</h3>
+            <div class="residents-grid">
+                <a href="#resident-bruno" class="resident-card">
+                    <span class="resident-avatar" style="background:#007bff; color:white;">B</span>
+                    <span class="resident-name">Bruno</span>
+                    <small>Ver Perfil</small>
+                </a>
+            </div>
+            <a href="#" class="button btn-enviar-mensagem">Enviar Mensagem</a>
         </article>
     </aside>
 
     <aside id="resident-ana" class="modal">
         <article class="modal-content">
-            <a href="#property-1" class="close" aria-label="Voltar">&times;</a>
-            <h2>Ana</h2>
-            <ul>
-                <li>Idade: 25</li>
-                <li>Gênero: Feminino</li>
-                <li>Trabalho: Estudante</li>
-            </ul>
-            <a href="#chat-modal" class="button">Conversar</a>
+            <a href="#" class="close" aria-label="Voltar">&times;</a>
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div class="resident-avatar" style="width: 80px; height: 80px; font-size: 32px; background: #e83e8c; color: white;">A</div>
+                <div>
+                    <h2 style="margin: 0; font-size: 24px;">Ana</h2>
+                    <p style="margin: 0; color: #666; font-size: 16px;">Estudante de Letras</p>
+                </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin-bottom: 24px;">
+                <p style="margin-bottom: 8px;"><strong>Idade:</strong> 25 anos</p>
+                <p style="margin-bottom: 8px;"><strong>Gênero:</strong> Feminino</p>
+                <p style="margin-bottom: 8px;"><strong>Personalidade:</strong> Introvertida e focada.</p>
+                <p style="margin-bottom: 8px;"><strong>Hobbies:</strong> Leitura, séries e cozinhar.</p>
+                <p style="margin: 0;"><strong>Sobre:</strong> "Gosto de manter a casa limpa e silenciosa durante a semana para estudar. Sou bem tranquila e procuro alguém que também valorize o sossego."</p>
+            </div>
+            <a href="#chat-modal" class="button btn-enviar-mensagem" style="width: 100%;">Conversar com Ana</a>
+        </article>
+    </aside>
+
+    <aside id="resident-bruno" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close" aria-label="Voltar">&times;</a>
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div class="resident-avatar" style="width: 80px; height: 80px; font-size: 32px; background: #007bff; color: white;">B</div>
+                <div>
+                    <h2 style="margin: 0; font-size: 24px;">Bruno</h2>
+                    <p style="margin: 0; color: #666; font-size: 16px;">Engenheiro de Software</p>
+                </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin-bottom: 24px;">
+                <p style="margin-bottom: 8px;"><strong>Idade:</strong> 28 anos</p>
+                <p style="margin-bottom: 8px;"><strong>Gênero:</strong> Masculino</p>
+                <p style="margin-bottom: 8px;"><strong>Personalidade:</strong> Extrovertido e animado.</p>
+                <p style="margin-bottom: 8px;"><strong>Hobbies:</strong> Esportes, videogames e churrasco.</p>
+                <p style="margin: 0;"><strong>Sobre:</strong> "Trabalho de casa na maior parte do tempo, mas no final de semana gosto de convidar amigos para assistir a um jogo ou jogar conversa fora."</p>
+            </div>
+            <a href="#chat-modal" class="button btn-enviar-mensagem" style="width: 100%;">Conversar com Bruno</a>
+        </article>
+    </aside>
+
+    <aside id="resident-carla" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close" aria-label="Voltar">&times;</a>
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div class="resident-avatar" style="width: 80px; height: 80px; font-size: 32px; background: #6f42c1; color: white;">C</div>
+                <div>
+                    <h2 style="margin: 0; font-size: 24px;">Carla</h2>
+                    <p style="margin: 0; color: #666; font-size: 16px;">Designer Gráfico</p>
+                </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin-bottom: 24px;">
+                <p style="margin-bottom: 8px;"><strong>Idade:</strong> 23 anos</p>
+                <p style="margin-bottom: 8px;"><strong>Gênero:</strong> Feminino</p>
+                <p style="margin-bottom: 8px;"><strong>Personalidade:</strong> Introvertida e criativa.</p>
+                <p style="margin-bottom: 8px;"><strong>Hobbies:</strong> Yoga, pintura e museus.</p>
+                <p style="margin: 0;"><strong>Sobre:</strong> "Sou apaixonada por arte e decoração. Minha casa é meu refúgio criativo. Busco alguém que seja respeitoso e goste de ambientes calmos."</p>
+            </div>
+            <a href="#chat-modal" class="button btn-enviar-mensagem" style="width: 100%;">Conversar com Carla</a>
+        </article>
+    </aside>
+
+    <aside id="resident-diego" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close" aria-label="Voltar">&times;</a>
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div class="resident-avatar" style="width: 80px; height: 80px; font-size: 32px; background: #17a2b8; color: white;">D</div>
+                <div>
+                    <h2 style="margin: 0; font-size: 24px;">Diego</h2>
+                    <p style="margin: 0; color: #666; font-size: 16px;">Administrador</p>
+                </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin-bottom: 24px;">
+                <p style="margin-bottom: 8px;"><strong>Idade:</strong> 30 anos</p>
+                <p style="margin-bottom: 8px;"><strong>Gênero:</strong> Masculino</p>
+                <p style="margin-bottom: 8px;"><strong>Personalidade:</strong> Flexível e amigável.</p>
+                <p style="margin-bottom: 8px;"><strong>Hobbies:</strong> Culinária, vinhos e viagens.</p>
+                <p style="margin: 0;"><strong>Sobre:</strong> "Tenho uma rotina flexível. Gosto tanto de um jantar animado quanto de uma noite tranquila. O importante para mim é a boa convivência e organização."</p>
+            </div>
+            <a href="#chat-modal" class="button btn-enviar-mensagem" style="width: 100%;">Conversar com Diego</a>
+        </article>
+    </aside>
+
+    <aside id="resident-elena" class="modal">
+        <article class="modal-content">
+            <a href="#" class="close" aria-label="Voltar">&times;</a>
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                <div class="resident-avatar" style="width: 80px; height: 80px; font-size: 32px; background: #fd7e14; color: white;">E</div>
+                <div>
+                    <h2 style="margin: 0; font-size: 24px;">Elena</h2>
+                    <p style="margin: 0; color: #666; font-size: 16px;">Universitária</p>
+                </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin-bottom: 24px;">
+                <p style="margin-bottom: 8px;"><strong>Idade:</strong> 21 anos</p>
+                <p style="margin-bottom: 8px;"><strong>Gênero:</strong> Feminino</p>
+                <p style="margin-bottom: 8px;"><strong>Personalidade:</strong> Extrovertida e comunicativa.</p>
+                <p style="margin-bottom: 8px;"><strong>Hobbies:</strong> Música, festas e fotografia.</p>
+                <p style="margin: 0;"><strong>Sobre:</strong> "Adoro conhecer gente nova e explorar a cidade! Minha rotina é bem agitada, estudo e faço estágio. Quero dividir a casa com alguém alto astral."</p>
+            </div>
+            <a href="#chat-modal" class="button btn-enviar-mensagem" style="width: 100%;">Conversar com Elena</a>
         </article>
     </aside>
 
@@ -321,11 +864,9 @@
         <fieldset class="modal-content chat-modal-content">
             <legend class="visually-hidden">Janela de Chat</legend>
             <a href="#" class="close" aria-label="Fechar chat">&times;</a>
-            
             <fieldset class="chat-layout">
                 <legend class="visually-hidden">Conversas</legend>
                 <input type="radio" id="conv-ana" name="conversation" value="ana" checked hidden>
-                
                 <nav class="chat-list" aria-label="Contatos">
                     <ul>
                         <li>
@@ -336,16 +877,13 @@
                         </li>
                     </ul>
                 </nav>
-
                 <article class="chat-content">
                     <header class="chat-header">
                         <h2>Conversa com Ana</h2>
                     </header>
-                    
                     <ul class="messages">
                         <li class="message left">Olá! Estou interessada no imóvel.</li>
                     </ul>
-                    
                     <form action="#" method="post" class="message-form">
                         <label for="msg-input" class="visually-hidden">Mensagem:</label>
                         <input type="text" id="msg-input" name="msg" required>
@@ -357,6 +895,5 @@
     </aside>
 
     <script src="js/script.js"></script>
-    
 </body>
 </html>
